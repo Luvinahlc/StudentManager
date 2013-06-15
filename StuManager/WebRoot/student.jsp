@@ -7,7 +7,7 @@
 </head>
 <body>  
   <%
-String stuid = (String)session.getAttribute("stuid");
+String stuid = (String)session.getAttribute("id");
 
 if(stuid==null){response.sendRedirect("login.faces");}                                 
 %>
@@ -26,7 +26,7 @@ if(stuid==null){response.sendRedirect("login.faces");}
       <a href="DisplayCourse.faces">选修课程　＞＞</a>
     
     </td>
-    <td><h:commandLink value="查看成绩　＞＞" action="#{studentBean.preCheckMark}"/>
+    <td><h:commandLink value="察看成绩　＞＞" action="#{studentBean.preCheckMark}"/>
     <a href="checkmark.faces"></a></td>
     
     
@@ -37,6 +37,6 @@ if(stuid==null){response.sendRedirect("login.faces");}
 </table>
 	</h:form>
 </f:view>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="login_confirm?action=logout">&lt;&lt;注销 </a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.faces">退出</a></p>
 </body>
 </html>

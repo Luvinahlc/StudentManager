@@ -39,11 +39,11 @@ public abstract class DAOFactory {
 		return factory;
 	}
 
-	public abstract StudentDAO createStudentDAO();
+	/*public abstract StudentDAO createStudentDAO();
 	public abstract TeacherDAO createTeacherDAO();
 	public abstract AdminDAO createAdminDAO();
 	public abstract CourseDAO createCourseDAO();
 	public abstract ClassesDAO createClassesDAO();
-	public abstract EnrolDAO createEnrolDAO();
+	public abstract EnrolDAO createEnrolDAO();*/
 
 }

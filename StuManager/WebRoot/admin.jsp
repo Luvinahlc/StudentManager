@@ -38,7 +38,7 @@
 			&nbsp;
 		</p>
 		<p>
-			<a href="login_confirm? action=/logout">&lt;&lt;×¢Ïú </a>
+			<a href="login.faces">ÍË³ö</a>
 		</p>
 	</body>
 </html>

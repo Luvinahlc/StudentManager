@@ -12,7 +12,6 @@
     
 </head>
 
-
 <body>
 <f:view>
 	<h:form>
@@ -36,7 +35,7 @@
 					
 						<div id="Login">
 						<font style="font-size: 12px;font-weight:bold;color: #FF0000"></font><br>
-						<form method="post" action="login.do" onsubmit="JavaScript: return CheckForm();" style="width: 223px; ">
+						<form method="post" action="login.do">
 							<label>
 								用户
 							</label>

@@ -8,19 +8,26 @@
 
 	<session-factory>
 		<property name="show_sql">true</property>
-		<property name="myeclipse.connection.profile">conn_mysql_stu</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/STU?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="myeclipse.connection.profile">
+			conn_mysql_stu
+		</property>
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/STU?useUnicode=true&amp;characterEncoding=utf8
+		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">huangluchen</property>
-		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		<mapping resource="com/stuman/domain/Admin.hbm.xml" />
+		<property name="connection.password">681122</property>
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<mapping resource="com/stuman/domain/User.hbm.xml" />
 		<mapping resource="com/stuman/domain/Student.hbm.xml" />
-		<mapping resource="com/stuman/domain/Teacher.hbm.xml" />
-		<mapping resource="com/stuman/domain/Course.hbm.xml" />
-		<mapping resource="com/stuman/domain/Classes.hbm.xml" />
-		<mapping resource="com/stuman/domain/Enrol.hbm.xml" />
-
+		<mapping resource="com/stuman/domain/Courseinfo.hbm.xml" />
+		<mapping resource="com/stuman/domain/Courseplan.hbm.xml" />
+		<mapping resource="com/stuman/domain/Selectcourse.hbm.xml" />
+		<mapping resource="com/stuman/domain/Academicdean.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

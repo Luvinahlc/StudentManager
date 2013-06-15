@@ -2,9 +2,9 @@
 <project-module
   type="WEB"
   name="StuManager"
-  id="myeclipse.1367862830058"
+  id="myeclipse.1368012673986"
   context-root="/StuManager"
-  j2ee-spec="6.0"
+  j2ee-spec="1.4"
   archive="StuManager.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
