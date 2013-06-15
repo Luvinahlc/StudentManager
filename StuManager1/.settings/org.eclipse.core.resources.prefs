@@ -1,0 +1,27 @@
+#Tue May 21 23:04:17 CST 2013
+eclipse.preferences.version=1
+encoding//WebRoot/admin.jsp=UTF-8
+encoding//WebRoot/admin_3addanddrop.jsp=UTF-8
+encoding//WebRoot/admin_3addcourse.jsp=UTF-8
+encoding//WebRoot/admin_3choosecoursetime.jsp=UTF-8
+encoding//WebRoot/admin_3coursecondition.jsp=UTF-8
+encoding//WebRoot/admin_3credit.jsp=UTF-8
+encoding//WebRoot/admin_3gradeenter.jsp=UTF-8
+encoding//WebRoot/admin_3gradetime.jsp=UTF-8
+encoding//WebRoot/admin_3importandexport.jsp=UTF-8
+encoding//WebRoot/admin_3infoquerystatistics.jsp=UTF-8
+encoding//WebRoot/admin_3lookandmodi.jsp=UTF-8
+encoding//WebRoot/admin_3print.jsp=UTF-8
+encoding//WebRoot/admin_3queryandmodigrade.jsp=UTF-8
+encoding//WebRoot/admin_courseplan.jsp=UTF-8
+encoding//WebRoot/admin_grademanage.jsp=UTF-8
+encoding//WebRoot/admin_graduateinfo.jsp=UTF-8
+encoding//WebRoot/admin_stustatus.jsp=UTF-8
+encoding//WebRoot/css/table.css=UTF-8
+encoding//WebRoot/errorpage.jsp=UTF-8
+encoding//WebRoot/stu_3choosecourse.jsp=UTF-8
+encoding//WebRoot/stu_3coursechoosed.jsp=UTF-8
+encoding//WebRoot/stu_3dropcourse.jsp=UTF-8
+encoding//WebRoot/stu_3graduatecheck.jsp=UTF-8
+encoding//WebRoot/stu_3infolookandmodi.jsp=UTF-8
+encoding//WebRoot/stu_information.jsp=UTF-8
