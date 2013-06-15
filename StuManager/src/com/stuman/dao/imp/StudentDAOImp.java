@@ -31,7 +31,21 @@ public class StudentDAOImp implements StudentDAO {
 		}
 		return null;
 	}
-
+	public List<String> getStudentGrade() {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<String> results = s.createQuery("select distinct stu.grade from Student as stu").list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
 	public boolean deleteStudentByID(String id) {
 		// TODO Auto-generated method stub
 		try {
@@ -113,6 +127,21 @@ public class StudentDAOImp implements StudentDAO {
 			log.fatal(e);
 		}		
 		return false;
+	}
+	public List<Student> getStudentByGrade(String grade) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<Student> results = s.createQuery("from Student as stu where stu.grade=:sgrade").setString("sgrade",grade).list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
 	}
 
 }

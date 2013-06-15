@@ -55,6 +55,8 @@ public class StudentBean {
 	private List<Integer> grades = new ArrayList<Integer>();
 	
 	
+	private int sum;
+	
 	private String cno;
 	
 	public StudentDAO getStudentDAO() {
@@ -203,6 +205,11 @@ public class StudentBean {
 		selDao.deleteSelectCourseById(sno, cno);
 		return "success";	
 	}
+	public String countCredit(String sno) {
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		setSum(selDao.sumCreditBySno(sno));
+		return "success";
+	}
 	public String getSno() {
 		return sno;
 	}
@@ -228,7 +235,7 @@ public class StudentBean {
 		if(sgender==0)
 			return "Å®";
 		else
-			return "ÄÐ";
+			return "ï¿½ï¿½";
 	}
 	public Integer getSgender() {
 		return sgender;
@@ -321,6 +328,12 @@ public class StudentBean {
 	}
 	public void setCourses(List<Courseinfo> courses) {
 		this.courses = courses;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
 
 }
