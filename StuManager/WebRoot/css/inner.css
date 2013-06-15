@@ -45,7 +45,7 @@ img {
 	position: relative;
 	height: 85px;
 	width: 100%;
-	background: url(../image/HeaderBg.jpg) repeat-x;
+	background: url(../images/HeaderBg.jpg) repeat-x;
 }
 
 #logo {
@@ -108,7 +108,7 @@ img {
 	line-height: 37px;
 	margin: 0;
 	text-align: center;
-	background: url(../image/NavBg.jpg);
+	background: url(../images/NavBg.jpg);
 }
 
 #Nav a {
@@ -129,17 +129,17 @@ img {
 
 #Nav a:hover {
 	color: #FFFFFF; 
-	background: url(../image/NavBg_H.jpg) no-repeat;
+	background: url(../images/NavBg_H.jpg) no-repeat;
 }
 
 #Nav a:active {
 	color: #FFFFFF; 
-	background: url(../image/NavBg_H.jpg) no-repeat;
+	background: url(../images/NavBg_H.jpg) no-repeat;
 }
 
 #Nav .Cur {
 	width: 111px;
-	background: url(../image/NavBg_H.jpg);
+	background: url(../images/NavBg_H.jpg);
 }
 
 #Nav .Cur a:link {
@@ -169,7 +169,7 @@ img {
 .Line {
 	width: 1000px;
 	height: 10px;
-	background: url(../image/Line.gif) no-repeat;
+	background: url(../images/Line.gif) no-repeat;
 }
 
 .AchievementTable{

@@ -23,12 +23,12 @@
 <div id="Nav">
   <ul>
     <li id="homepage"><a href="teacher.faces">首  页</a></li>
-    <li id="studentinfo"><a href="updatetea.faces">个人信息</a></li>
-    <li id="teachinginfo"><a href="coursemanage.faces">课程管理</a></li>
-    <li id="teachinginfo"><a href="studentmanage.faces">学生管理</a></li>
-    <li id="teachinginfo"><a href="coursescheduling.faces">排课系统</a></li>
-    <li id="studentinfo"><a href="courseselectingresult.faces">选课结果</a></li>
-    <li id="studentinfo"><a href="scorequery.faces">成绩管理</a></li>
+    <li id="studentinfo"><a href="teacherinfo.faces">个人信息</a></li>
+    <li id="teachinginfo"><a href="teacoursemanage.faces">课程管理</a></li>
+    <li id="teachinginfo"><a href="teastudentmanage.faces">学生管理</a></li>
+    <li id="teachinginfo"><a href="teacoursescheduling.faces">排课系统</a></li>
+    <li id="studentinfo"><a href="teacourseselectingresult.faces">选课结果</a></li>
+    <li id="studentinfo"><a href="teascoremanage.faces">成绩管理</a></li>
       	
   </ul>
 </div>
@@ -44,12 +44,12 @@
 
 <div id="Function">
     <ul>
-	    <li id="studentinfo"><a href="updatetea.faces"><img src="image/personal.png"><br />个人信息</a></li>
-	    <li id="teachinginfo"><a href="coursemanage.faces"><img src="image/teaching.png"><br />课程管理</a></li>
-	    <li id="electiveinfo"><a href="studentmanage.faces"><img src="image/elective.png"><br />学生管理</a></li>
-	    <li id="signupinfo"><a href="coursescheduling.faces"><img src="image/executeplan.png"><br />排课系统</a></li>
-		<li id="dissertation"><a href="courseselectingresult.faces"><img src="image/dissertation.png"><br />选课结果</a></li>
-		<li id="coureval"><a href="scorequery.faces"><img src="image/stueval.png"><br />成绩管理</a></li>
+	    <li id="studentinfo"><a href="teacherinfo.faces"><img src="image/personal.png"><br />个人信息</a></li>
+	    <li id="teachinginfo"><a href="teacoursemanage.faces"><img src="image/teaching.png"><br />课程管理</a></li>
+	    <li id="electiveinfo"><a href="teastudentmanage.faces"><img src="image/elective.png"><br />学生管理</a></li>
+	    <li id="signupinfo"><a href="teacoursescheduling.faces"><img src="image/executeplan.png"><br />排课系统</a></li>
+		<li id="dissertation"><a href="teacourseselectingresult.faces"><img src="image/dissertation.png"><br />选课结果</a></li>
+		<li id="coureval"><a href="teascoremanage.faces"><img src="image/stueval.png"><br />成绩管理</a></li>
 		
 	</ul>
 </div>
