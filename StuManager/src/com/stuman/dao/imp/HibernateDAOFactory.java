@@ -1,46 +1,31 @@
 package com.stuman.dao.imp;
 
-import com.stuman.dao.DAOFactory;
-/*import com.stuman.dao.AdminDAO;
-import com.stuman.dao.ClassesDAO;
-import com.stuman.dao.CourseDAO;
-import com.stuman.dao.EnrolDAO;
-import com.stuman.dao.StudentDAO;
-import com.stuman.dao.TeacherDAO;
-*/
-;
+import com.stuman.dao.*;
 
 public class HibernateDAOFactory extends DAOFactory {
 
-	/*public StudentDAO createStudentDAO() {
-		// TODO Auto-generated method stub
+	public  StudentDAOImp createStudentDAOImp()
+	{
 		return new StudentDAOImp();
 	}
-
-	public TeacherDAO createTeacherDAO() {
-		// TODO Auto-generated method stub
-		return new TeacherDAOImp();
+	public UserDAOImp createUserDAOImp()
+	{
+		return new UserDAOImp();
 	}
-	
-
-	public AdminDAO createAdminDAO() {
-		// TODO Auto-generated method stub
-		return new AdminDAOImp();
+	public  AcademicDeanDAOImp createAcademicDeanDAOImp()
+	{
+		return new AcademicDeanDAOImp();
 	}
-	
-	public CourseDAO createCourseDAO() {
-		// TODO Auto-generated method stub
-		return new CourseDAOImp();
+	public  CourseInfoDAOImp createCourseInfoDAOImp()
+	{
+		return new CourseInfoDAOImp();
 	}
- 
-	public ClassesDAO createClassesDAO() {
-		// TODO Auto-generated method stub
-		return new ClassesDAOImp();
+	public CoursePlanDAOImp createCoursePlanDAOImp()
+	{
+		return new CoursePlanDAOImp();
 	}
-	
-	public EnrolDAO createEnrolDAO() {
-		// TODO Auto-generated method stub
-		return new EnrolDAOImp();
-	}*/
-	
+	public  SelectCourseDAOImp createSelectCourseDAOImp()
+	{
+		return new SelectCourseDAOImp();
+	}
 }
