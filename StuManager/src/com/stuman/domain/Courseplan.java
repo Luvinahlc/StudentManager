@@ -81,8 +81,6 @@ public class Courseplan implements java.io.Serializable {
 	}
 
 	public String getExamTime() {
-		if (examTime == null)
-			return "";
 		return this.examTime;
 	}
 
@@ -91,8 +89,6 @@ public class Courseplan implements java.io.Serializable {
 	}
 
 	public String getExamPlace() {
-		if (examPlace == null)
-			return "";
 		return this.examPlace;
 	}
 

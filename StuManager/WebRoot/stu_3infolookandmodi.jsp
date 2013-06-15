@@ -11,11 +11,7 @@
 		StudentBean.setSidno(idno);
 		System.out.println(birthday);
 		StudentBean.setSbirthday(Date.valueOf(birthday));
-		if(StudentBean.modifyStuInfo())
-			StudentBean.setMsg("修改成功");
-		else
-			StudentBean.setMsg("修改失败");
-			
+		StudentBean.modifyStuInfo();
 	}
 	request.removeAttribute("idno");
 	request.removeAttribute("birthday");
@@ -34,7 +30,7 @@
 <div id="Logo"><a href="student.faces"><img src="images/Logo_Student.jpg" border="0"></a></div>
 <div id="TopLink"><img src="images/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Icon_Exit.gif"><a href="login.faces">退出</a></div>
 <div id="UserInfo">~~欢迎您~~</div>
-<script type="text/javascript" language="javascript" src="js/date.js"></script>
+<script type="text/javascript" language="javascript" src="js/prototype.js"></script>
 <div id="Nav">
   <ul>
     <li id="homepage"><a href="student.faces">首  页</a></li>
@@ -58,12 +54,31 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript">
 
+	function selectItem(idName)
+	{
+		var idStr = "";
+		document.getElementById("d22").className = "DIV_HIDDEN";
+		document.getElementById("tab2").className = "TAB_UNSELECTED";
+		
+		var clickOb  = document.getElementById(idName);
+		clickOb.className = "TAB_SELECTED";
+
+		 if(idName == "tab2")
+		{
+			idStr = "d22";
+		}
+	
+		var  divOb  = document.getElementById(idStr);
+		divOb.className = "DIV_SHOW";
+	
+	}
 </script>
 
 </head>
 
 <body class="BODY"  leftmargin="50" rightmargin="50" 
  
+	onLoad="selectItem('tab2')"
  
 >
 
@@ -71,18 +86,14 @@
 			<div style="position:absolute; top:100px; left:50px; height:80px; width:250px;">	
 				<table width="100%" border="0" borderColor="#3366CC">
 					<tr  height="20">
-						<td id='tab2' class="TAB_SELECTED"  > 
+						<td id='tab2' class="TAB_SELECTED"   onClick="javascript:selectItem('tab1')"  onMouseOver="javaScript:mouseOver('tab1')"> 
 							学生信息查看和修改
 				 		</td>
 					</tr>
 				</table>
-			<div align="left">
-			<label  style="color :#FF0000"><%=StudentBean.getMsg()%></label>
-  		 	</div>
 			</div>
-		</div>
 	
-		<div id="d22" class="DIV_SHOW" >
+		<div id="d22" class="DIV_HIDDEN" >
 			<form action="stu_3infolookandmodi.jsp" method="post">
 				<table width="100%" CLASS="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
 					<tr><th colspan="7"  class="TABLE_TH" >基本信息</th></tr>
@@ -101,7 +112,7 @@
 								<td class="TABLE_TD_02">性别<br></TD>
 								<td class="TABLE_TD_01"><%=StudentBean.getGender() %><br></TD>
 								<td  class="TABLE_TD_02">出生日期<br></TD>
-								<td class="TABLE_TD_01"><input id="birthday" name="birthday"  onclick="javascript:ShowCalendar(birthday)"  maxlength="200" value=<%=StudentBean.getSbirthday() %> /><br></TD>
+								<td class="TABLE_TD_01"><input id="birthday" name="birthday"  maxlength="200" value=<%=StudentBean.getSbirthday() %> /><br></TD>
 							</tr>
 							
 							<tr height="27">
@@ -132,15 +143,16 @@
 							</tr>			
 				</table>
 			</form>
-			
 		</div>
+	</div>
 	
 </body>
 </html>
 
 
 	
-
+	
+<div class="Line"></div>
   </body>
 </html>
 
