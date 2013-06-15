@@ -48,6 +48,7 @@ public class SelectCourseBean {
 		else return "";
 	}
 	public boolean checkstuExist()
+	
 	{
 		Session s = HibernateUtil.currentSession();
 		String sno=getSno();
