@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagrams:Diagrams xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.topcased.org/DI/1.0" xmlns:diagrams="http://www.topcased.org/Diagrams/1.0" xmi:id="_bU0PINXAEeKN1ueZkQgJ9w" activeDiagram="_bXE48NXAEeKN1ueZkQgJ9w">
+  <model href="LoginBean.uml#_bQfv0dXAEeKN1ueZkQgJ9w"/>
+  <diagrams xmi:id="_bXE48NXAEeKN1ueZkQgJ9w" position="0,0" size="100,100" name="LoginBean" viewport="0,0">
+    <property xmi:id="_chGcENXAEeKN1ueZkQgJ9w" key="pageFormatName" value="A1"/>
+    <property xmi:id="_chGcEdXAEeKN1ueZkQgJ9w" key="diagramWidth" value="2376"/>
+    <property xmi:id="_chGcEtXAEeKN1ueZkQgJ9w" key="diagramHeight" value="3364"/>
+    <property xmi:id="_chGcE9XAEeKN1ueZkQgJ9w" key="pageMarginName" value="Small Margin"/>
+    <property xmi:id="_chGcFNXAEeKN1ueZkQgJ9w" key="diagramTopMargin" value="20"/>
+    <property xmi:id="_chGcFdXAEeKN1ueZkQgJ9w" key="diagramBottomMargin" value="20"/>
+    <property xmi:id="_chHDINXAEeKN1ueZkQgJ9w" key="diagramLeftMargin" value="20"/>
+    <property xmi:id="_chHDIdXAEeKN1ueZkQgJ9w" key="diagramRightMargin" value="20"/>
+    <property xmi:id="_chHDItXAEeKN1ueZkQgJ9w" key="orientation" value="portrait"/>
+    <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_bXE48dXAEeKN1ueZkQgJ9w" presentation="org.topcased.modeler.uml.sequencediagram">
+      <element href="LoginBean.uml#_bQgW4dXAEeKN1ueZkQgJ9w"/>
+    </semanticModel>
+    <contained xsi:type="di:GraphNode" xmi:id="_dRD5YNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRD5YdXAEeKN1ueZkQgJ9w">
+        <element href="LoginBean.uml#_bQg-HNXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dRD5YtXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRD5Y9XAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg-HdXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dRCrQNXAEeKN1ueZkQgJ9w" position="53,247" size="1466,58">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRCrQdXAEeKN1ueZkQgJ9w">
+        <element href="LoginBean.uml#_bQg-DdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dRCrQtXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRCrQ9XAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg-DtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dRBdINXAEeKN1ueZkQgJ9w" position="53,167" size="1466,78">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRBdIdXAEeKN1ueZkQgJ9w">
+        <element href="LoginBean.uml#_bQg999XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dRBdItXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRBdI9XAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg9-NXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dRBdJNXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRBdJdXAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg9-tXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dRBdJtXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dRBdJ9XAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg9_NXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dQ1P5NXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQ1P5dXAEeKN1ueZkQgJ9w">
+        <element href="LoginBean.uml#_bQg99NXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dQ1P5tXAEeKN1ueZkQgJ9w">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQ1P59XAEeKN1ueZkQgJ9w">
+          <element href="LoginBean.uml#_bQg99dXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_c5wzsNXAEeKN1ueZkQgJ9w" position="13,40" size="200,715">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_c5wzsdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgW_dXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMCPcNXAEeKN1ueZkQgJ9w" position="63,40" size="20,235">
+        <anchorage xmi:id="_dM_RsNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQobkNXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQobk9XAEeKN1ueZkQgJ9w" position="13,25" graphEdge="_dQppsdXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQpptNXAEeKN1ueZkQgJ9w" position="13,45" graphEdge="_dQq30NXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQq309XAEeKN1ueZkQgJ9w" position="13,65" graphEdge="_dQsF8NXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQsF89XAEeKN1ueZkQgJ9w" position="13,85" graphEdge="_dQt7INXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQuiMNXAEeKN1ueZkQgJ9w" position="13,105" graphEdge="_dQvJQdXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQvwUNXAEeKN1ueZkQgJ9w" position="13,125" graphEdge="_dQwXYdXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQwXZNXAEeKN1ueZkQgJ9w" position="13,145" graphEdge="_dQxlgNXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQxlg9XAEeKN1ueZkQgJ9w" position="13,165" graphEdge="_dQyMkdXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQyzoNXAEeKN1ueZkQgJ9w" position="13,185" graphEdge="_dQzasNXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQzas9XAEeKN1ueZkQgJ9w" position="13,205" graphEdge="_dQ0o0NXAEeKN1ueZkQgJ9w"/>
+        <anchorage xmi:id="_dQ0o09XAEeKN1ueZkQgJ9w" position="13,225" graphEdge="_dQ1P4dXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMCPcdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQgXBtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMmQINXAEeKN1ueZkQgJ9w" position="63,290" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMmQIdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-J9XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMm3MNXAEeKN1ueZkQgJ9w" position="63,355" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMm3MdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-KNXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMneQNXAEeKN1ueZkQgJ9w" position="63,420" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMneQdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQhlANXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMoFUNXAEeKN1ueZkQgJ9w" position="63,485" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMoFUdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQhlAdXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMosYNXAEeKN1ueZkQgJ9w" position="63,550" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMosYdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQhlAtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMpTcNXAEeKN1ueZkQgJ9w" position="63,615" size="20,50">
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMpTcdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQhlA9XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL7hwNXAEeKN1ueZkQgJ9w" position="243,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL7hwdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgW_tXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMgJgNXAEeKN1ueZkQgJ9w" position="13,40" size="20,15">
+        <anchorage xmi:id="_dQnNcNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQobkNXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMgJgdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQgXCtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMh-sNXAEeKN1ueZkQgJ9w" position="13,100" size="20,15">
+        <anchorage xmi:id="_dQre4NXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQsF8NXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMh-sdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-AdXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL8v4NXAEeKN1ueZkQgJ9w" position="473,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL9W8NXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgW_9XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMgwkNXAEeKN1ueZkQgJ9w" position="13,60" size="20,15">
+        <anchorage xmi:id="_dQppsNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQppsdXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMgwkdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQgXDtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL9-ANXAEeKN1ueZkQgJ9w" position="703,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL9-AdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXANXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMhXoNXAEeKN1ueZkQgJ9w" position="13,80" size="20,15">
+        <anchorage xmi:id="_dQqQwNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQq30NXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMhXodXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg989XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL-lENXAEeKN1ueZkQgJ9w" position="933,40" size="200,300">
+      <anchorage xmi:id="_dQtUENXAEeKN1ueZkQgJ9w" position="933,154" graphEdge="_dQt7INXAEeKN1ueZkQgJ9w"/>
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL-lEdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXAdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL_MINXAEeKN1ueZkQgJ9w" position="1163,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL_MIdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXAtXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMilwNXAEeKN1ueZkQgJ9w" position="13,140" size="20,15">
+        <anchorage xmi:id="_dQvJQNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQvJQdXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMilwdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-CNXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMjz4NXAEeKN1ueZkQgJ9w" position="13,200" size="20,15">
+        <anchorage xmi:id="_dQyMkNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQyMkdXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMjz4dXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-F9XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dL_zMNXAEeKN1ueZkQgJ9w" position="1393,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dL_zMdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXA9XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMjM0NXAEeKN1ueZkQgJ9w" position="13,160" size="20,15">
+        <anchorage xmi:id="_dQwXYNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQwXYdXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMjM0dXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-DNXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMka8NXAEeKN1ueZkQgJ9w" position="13,220" size="20,15">
+        <anchorage xmi:id="_dQyzodXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQzasNXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMka8dXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-G9XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMlpENXAEeKN1ueZkQgJ9w" position="13,260" size="20,15">
+        <anchorage xmi:id="_dQ1P4NXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQ1P4dXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMlpEdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-JtXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dMAaQNXAEeKN1ueZkQgJ9w" position="1623,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMAaQdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXBNXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMjM0tXAEeKN1ueZkQgJ9w" position="13,180" size="20,15">
+        <anchorage xmi:id="_dQw-cNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQxlgNXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMjM09XAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-E9XAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphNode" xmi:id="_dMBBUNXAEeKN1ueZkQgJ9w" position="1853,40" size="200,300">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMBBUdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQgXBdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:GraphNode" xmi:id="_dMlCANXAEeKN1ueZkQgJ9w" position="13,240" size="20,15">
+        <anchorage xmi:id="_dQ0BwNXAEeKN1ueZkQgJ9w" position="13,5" graphEdge="_dQ0o0NXAEeKN1ueZkQgJ9w"/>
+        <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dMlCAdXAEeKN1ueZkQgJ9w" presentation="default">
+          <element href="LoginBean.uml#_bQg-ItXAEeKN1ueZkQgJ9w"/>
+        </semanticModel>
+      </contained>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQobkNXAEeKN1ueZkQgJ9w" anchor="_dM_RsNXAEeKN1ueZkQgJ9w _dQnNcNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQobkdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlBNXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQobktXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQppsdXAEeKN1ueZkQgJ9w" anchor="_dQobk9XAEeKN1ueZkQgJ9w _dQppsNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQppstXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlBdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQpps9XAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQq30NXAEeKN1ueZkQgJ9w" anchor="_dQpptNXAEeKN1ueZkQgJ9w _dQqQwNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQq30dXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlBtXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQq30tXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQsF8NXAEeKN1ueZkQgJ9w" anchor="_dQq309XAEeKN1ueZkQgJ9w _dQre4NXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQsF8dXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlB9XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQsF8tXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQt7INXAEeKN1ueZkQgJ9w" anchor="_dQsF89XAEeKN1ueZkQgJ9w _dQtUENXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQt7IdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlCNXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQt7ItXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQvJQdXAEeKN1ueZkQgJ9w" anchor="_dQuiMNXAEeKN1ueZkQgJ9w _dQvJQNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQvJQtXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlCdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQvJQ9XAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQwXYdXAEeKN1ueZkQgJ9w" anchor="_dQvwUNXAEeKN1ueZkQgJ9w _dQwXYNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQwXYtXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlCtXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQwXY9XAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQxlgNXAEeKN1ueZkQgJ9w" anchor="_dQwXZNXAEeKN1ueZkQgJ9w _dQw-cNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQxlgdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlC9XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQxlgtXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQyMkdXAEeKN1ueZkQgJ9w" anchor="_dQxlg9XAEeKN1ueZkQgJ9w _dQyMkNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQyMktXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlDNXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQyMk9XAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQzasNXAEeKN1ueZkQgJ9w" anchor="_dQyzoNXAEeKN1ueZkQgJ9w _dQyzodXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQzasdXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlDdXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQzastXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQ0o0NXAEeKN1ueZkQgJ9w" anchor="_dQzas9XAEeKN1ueZkQgJ9w _dQ0BwNXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQ0o0dXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlDtXAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQ0o0tXAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+    <contained xsi:type="di:GraphEdge" xmi:id="_dQ1P4dXAEeKN1ueZkQgJ9w" anchor="_dQ0o09XAEeKN1ueZkQgJ9w _dQ1P4NXAEeKN1ueZkQgJ9w">
+      <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_dQ1P4tXAEeKN1ueZkQgJ9w" presentation="default">
+        <element href="LoginBean.uml#_bQhlD9XAEeKN1ueZkQgJ9w"/>
+      </semanticModel>
+      <contained xsi:type="di:EdgeObjectOffset" xmi:id="_dQ1P49XAEeKN1ueZkQgJ9w" id="nameEdgeObject" offset="0,-10"/>
+    </contained>
+  </diagrams>
+</diagrams:Diagrams>
