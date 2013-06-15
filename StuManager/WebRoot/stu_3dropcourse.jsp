@@ -2,9 +2,20 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
-<%StudentBean.GetSelectedCourses(); %>
+<% String cno=request.getParameter("cno");
+	StudentBean.setSno((String)session.getAttribute("id"));
+	System.out.println(StudentBean.getSno());
+	if(cno!=null){
+		
+		System.out.println(cno);
+		StudentBean.DropCourseByID(cno);
+		request.removeAttribute("cno");
+	}
+ 	 %>
+<% StudentBean.GetSelectedCourses(); %>
 <%@page import ="com.stuman.domain.Courseinfo" %>
 <%@page import ="com.stuman.domain.Courseplan" %>
+
 <html>
   <head>
     <title>南京大学教务系统</title>
@@ -16,11 +27,12 @@
 <div id="Logo"><a href="student.faces"><img src="images/Logo_Student.jpg" border="0"></a></div>
 <div id="TopLink"><img src="images/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Icon_Exit.gif"><a href="login.faces">退出</a></div>
 <div id="UserInfo">~~欢迎您~~</div>
-<script type="text/javascript" language="javascript" src="js/prototype.js">
-	function dropcourse(id) {
-		var cno=((Courseinfo)(StudentBean.getCourses().get(id))).getCno();
-		StudentBean.dropcourseByID(cno);		
-	}
+<script type="text/javascript" language="javascript">
+   function con(cno){
+        if(window.confirm("确认退选？")){
+           location.href="stu_3dropcourse.jsp?cno="+cno;
+       }
+   }
 </script>
 <div id="Nav">
   <ul>
@@ -51,7 +63,6 @@
   </head>
 
 <body class="BODY"  leftmargin="50" rightmargin="50">
-   
   <div  align="center" style="width: 100%">
     <TABLE width="100%"  height="100%" align="center" >
       <tr><td height="15"></td></tr>
@@ -90,7 +101,7 @@
 					<td valign="middle"><%=((Courseplan)(StudentBean.getCrs().get(i))).getCplace()%></td>
 					<td valign="middle"><%=((Courseplan)(StudentBean.getCrs().get(i))).getClassType()%></td>
 					<td valign="middle"><%=((Courseplan)(StudentBean.getCrs().get(i))).getTeacher()%></td>
-					<td><a href="javascript:dropcourse(<%=i%>)">退选</a></td>
+					<td><a href = "javascript:con('<%=((Courseinfo)(StudentBean.getCourses().get(i))).getCno()%>')">退选</a></td>
 				   	</tr>	
 				   
 				   <% }%>

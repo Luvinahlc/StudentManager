@@ -1,37 +1,85 @@
-
-<%@page language="java" contentType="text/html; charset=GBK"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
+<%StudentBean.getCourseGrades(); %>
+<%@page import ="com.stuman.domain.Courseinfo" %>
+<%@page import ="com.stuman.domain.Courseplan" %>
+<html >
   <head>
-    <title>до╬╘╢Ся╖╫лнЯо╣мЁ</title>
+    <title>Е█≈Д╨╛Е╓╖Е╜╕Ф∙≥Е┼║ГЁ╩Г╩÷</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 <link href="css/inner.css" rel="stylesheet" type="text/css"> 
   </head>
   <body >
 	<div id="Header">
 <div id="Logo"><a href="student.faces"><img src="images/Logo_Student.jpg" border="0"></a></div>
-<div id="TopLink"><img src="images/Icon_Help.gif"><a href="student/index.do#">╟ОжЗ</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Icon_Exit.gif"><a href="login.faces">мкЁЖ</a></div>
-<div id="UserInfo">~~╩╤с╜дЗ~~</div>
+<div id="TopLink"><img src="images/Icon_Help.gif"><a href="student/index.do#">Е╦╝Е┼╘</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Icon_Exit.gif"><a href="login.faces">И──Е┤╨</a></div>
+<div id="UserInfo">~~Ф╛╒Х©▌Ф┌╗~~</div>
 <script type="text/javascript" language="javascript" src="js/prototype.js"></script>
 <div id="Nav">
   <ul>
-    <li id="homepage"><a href="student.faces">йв  рЁ</a></li>
-    <li id="studentinfo"><a href="stu_information.faces">╦Жхкпео╒</a></li>
-    <li id="teachinginfo"><a href="stu_gradelook.faces">Ёи╪╗╡И©╢</a></li>
-    <li id="teachinginfo"><a href="stu_courseplan.faces">я╖фзя║©н</a></li>
+    <li id="homepage"><a href="student.faces">И╕√  И║╣</a></li>
+    <li id="studentinfo"><a href="stu_information.faces">Д╦╙Д╨╨Д©║Ф│╞</a></li>
+    <li id="teachinginfo"><a href="stu_gradelook.faces">Ф┬░Г╩╘Ф÷╔Г°▀</a></li>
+    <li id="teachinginfo"><a href="stu_courseplan.faces">Е╜╕Ф°÷И─┴Х╞╬</a></li>
+    <li id="studentinfo"><a href="stu_applicationsystem.faces">Г■ЁФ┼╔ГЁ╩Г╩÷</a></li>
+    <li id="teachinginfo"><a href="stu_notice.faces">И─ Г÷╔Ф÷╔Г°▀</a></li>
+    <li id="teachinginfo"><a href="stu_courseassess.faces">Х╞╬Г╗▀Х╞└Д╪╟</a></li>
   </ul>
 </div>
 	</div>
-	<!--  
-<div id="Function">
-    <ul>
-	  <li><a href="student/studentinfo/studentinfo.do?method=searchAllList"><img src="images/personal.png"><br />╠ор╣пео╒╨к╤т</a></li>
-	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/achievement.png"><br />╩Ы╠╬пео╒пч╦дсК╡И©╢</a></li>
-	</ul>
-</div>
--->
-<div class="Line"></div>
+<html>
+  <head>
+    <base href="login.faces">
+    <title>Ф┴─И─┴Е░└Х╞╬Ф┬░Г╩╘</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+    <link href="css/table.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+	 </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  </head>
+
+<body class="BODY"  leftmargin="50" rightmargin="50">
+   
+  <div  align="center" style="width: 100%">
+    <TABLE width="100%"  height="100%" align="center" >
+      <tr><td height="15"></td></tr>
+      <TR align="center">
+		<TD width="10" >&nbsp;</TD>
+        <TD align="center" valign="top">
+			<table width="80%" class="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
+				<tr class="TABLE_TH">
+				  <th >Х╞╬Г╗▀Г╪√Е▐╥</th>
+				  <th >Х╞╬Г╗▀Е░█Г╖╟</th>
+				  <th >Х╞╬Г╗▀Г╠╩Е·▀</th>
+				  <th >Е╜╕Е┬├</th>
+				  <th >Ф┬░Г╩╘</th>
+				
+				  <%int listnum=StudentBean.getCourses().size();
+				   for(int i=0;i<listnum;i++){
+				   	if(i%2 == 0) {%>
+				   	<tr align="left" class="TABLE_TR_01">
+				   	<% }%>
+				   	<%if(i%2 == 1) {%>
+				   	<tr align="left" class="TABLE_TR_02">
+				   	<% }%>
+				   	
+				   	<td valign="middle"><%=((Courseinfo)(StudentBean.getCourses().get(i))).getCno()%></td>
+					<td valign="middle"><%=((Courseinfo)(StudentBean.getCourses().get(i))).getCname()%></td>
+					<td valign="middle"><%=((Courseplan)(StudentBean.getCrs().get(i))).getClassType()%></td>
+					<td valign="middle"><%=((Courseinfo)(StudentBean.getCourses().get(i))).getCredit()%></td>
+					<td valign="middle"><%=StudentBean.getGrades().get(i)%></td>
+				   	</tr>					   
+				   <% }%>
+			</table>
+			</TABLE>
+			</div>
+	
   </body>
+  
 </html>
 

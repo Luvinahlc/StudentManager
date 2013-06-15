@@ -1,4 +1,7 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
+<jsp:useBean id="AcademicBean" class="com.stuman.web.jsf.bean.AcademicBean" scope="page"/>
+<%	AcademicBean.setAno((String)(session.getAttribute("id")));
+	AcademicBean.CheckAcademicDean(); %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <html>
@@ -32,66 +35,90 @@
 </div>
 	</div>
 	﻿
+<html>
+  <head>
+    <base href="login.faces">
+    <title>教务员信息</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+    <link href="css/table.css" rel="stylesheet" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
 
+	function selectItem(idName)
+	{
+		var idStr = "";
+		document.getElementById("d11").className = "DIV_HIDDEN";
+		document.getElementById("tab1").className = "TAB_UNSELECTED";
+		var clickOb  = document.getElementById(idName);
+		clickOb.className = "TAB_SELECTED";
+		if(idName == "tab1")
+		{
+			idStr = "d11";
+		}
+		var  divOb  = document.getElementById(idStr);
+		divOb.className = "DIV_SHOW";
+	}
+	function mouseOver(idName)
+	{
+		var ob = document.getElementById(idName);
+		var name = ob.className;
+		name = name.replace("CURSOR_HAND");
+		ob.className = name+" CURSOR_HAND ";
+	}
 
-
-
-	<f:view>
-		<%--<%
-			String tea_id = request.getParameter("Teacher_id");
-			System.out.println("Student_id = " + tea_id);
-			String name = "", id = "", password = "", title = "";
-			TeacherDAO teaDao = DAOFactory.getInstance().createTeacherDAO();
-			Teacher tea = teaDao.getTeacherByID(tea_id);
-			name = tea.getName();
-			password = tea.getPassword();
-			title = tea.getTitle();
-			%>
-		--%>
-		<p align="center">
-			更新教务员
-		</p>
-		<%--<h:form method="post" action="/MyStuMan/editTeacher.do?Teacher_id=<%=tea_id%>">
-		
-			--%>
-			<h:form>
-			<table width="51%" border="1" align="center">
-				<tr>
-					<td width="33%">
-						教务员姓名
-					</td>
-					<td width="67%">
-							<h:inputText id="name" value="#{teacherBean.teacher.name}" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						密码
-					</td>
-					<td>
-							<h:inputSecret id="password" value="#{teacherBean.teacher.password}" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						院系
-					</td>
-					<td>
-							<h:selectOneListbox id="title" size="１" value="#{teacherBean.teacher.title}">
-								<f:selectItem itemLabel="计算机系" itemValue="计算机系"/>
-								<f:selectItem itemLabel="数学系" itemValue="数学系"/>
-							</h:selectOneListbox>
-					</td>
-				</tr>
+</script>
+</head>
+<body class="BODY"  leftmargin="50" rightmargin="50" 
+	onLoad="selectItem('tab1')"
+>
+  <div  align="center">
+			<div style="position:absolute; top:100px; left:50px; height:80px; width:250px;">	
+				<table width="100%" border="0" borderColor="#3366CC">
+					<tr  height="20">
+						<td id='tab1' class="TAB_SELECTED"   onClick="javascript:selectItem('tab1')"  onMouseOver="javaScript:mouseOver('tab1')"> 
+							教务员信息
+				 		</td>
+					</tr>
+				</table>
+			</div>
+		<div id="d11" class=DIV_HIDDEN >
+			<table width="100%" CLASS="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
+				<tr><th colspan="7"  class="TABLE_TH" >教务员信息</th></TR>
+						<tr height="27">
+							<td rowspan="5" align="left" width="100"><img src="image/common.jpg" width="100" height="135"/></td>
+							<td  class="TABLE_TD_02">教务员编号</td>
+							<td colspan="3" class="TABLE_TD_01"><%=AcademicBean.getAno() %></td>
+							
+						</tr>
+						
+						<tr height="27">
+							<td class="TABLE_TD_02">姓名</td>
+							<td class="TABLE_TD_01"><%=AcademicBean.getAname() %></td>
+										
+						</tr>	
+						
+						<tr height="27">
+							<td  class="TABLE_TD_02">出生日期</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=AcademicBean.getAbirthday() %></TD>						
+						</tr>	
+						
+						<tr height="27">
+							<td  class="TABLE_TD_02">身份证号</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=AcademicBean.getAidno() %></TD>
+						</tr>	
+						
+						<tr height="27">
+							<td  class="TABLE_TD_02">所在院系</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=AcademicBean.getAdept() %></TD>
+						</tr>					
 			</table>
-			<p align="center">
-					<h:commandButton action="#{teacherBean.editTeacher}" id="Submit" value="提交"/>
-			</p>
-		</h:form>
-		<p>
-			&nbsp;
-		</p>
-		</f:view>
-		<div class="Line"></div>
+		 </div>
+		
+  </div>
+  </body>
+</html>
+
 	</body>
 </html>

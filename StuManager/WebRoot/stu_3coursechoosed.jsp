@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
-<%StudentBean.GetSelectedCourses(); %>
+<%	StudentBean.setSno((String)session.getAttribute("id"));
+	StudentBean.GetSelectedCourses(); %>
 <%@page import ="com.stuman.domain.Courseinfo" %>
 <%@page import ="com.stuman.domain.Courseplan" %>
 <html >

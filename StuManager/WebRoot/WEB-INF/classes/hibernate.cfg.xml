@@ -28,6 +28,10 @@
 		<mapping resource="com/stuman/domain/Courseplan.hbm.xml" />
 		<mapping resource="com/stuman/domain/Selectcourse.hbm.xml" />
 		<mapping resource="com/stuman/domain/Academicdean.hbm.xml" />
+		<mapping resource="com/stuman/domain/Ungraduate.hbm.xml" />
+		<mapping resource="com/stuman/domain/Applyinfo.hbm.xml" />
+		<mapping resource="com/stuman/domain/Selectcoursetime.hbm.xml" />
+		<mapping resource="com/stuman/domain/Scoreentertime.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
