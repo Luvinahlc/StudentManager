@@ -1,7 +1,13 @@
 package com.stuman.web.jsf.bean;
 
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Set;
+=======
+import java.lang.reflect.InvocationTargetException;
+
+import org.apache.commons.beanutils.BeanUtils;
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;

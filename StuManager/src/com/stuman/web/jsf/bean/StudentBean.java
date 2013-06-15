@@ -14,10 +14,17 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.stuman.dao.CourseDAO;
 import com.stuman.dao.DAOFactory;
 import com.stuman.dao.StudentDAO;
+<<<<<<< HEAD
 import com.stuman.domain.Course;
+=======
+import com.stuman.domain.Courseinfo;
+import com.stuman.domain.Courseplan;
+import com.stuman.domain.Selectcourse;
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 import com.stuman.domain.Student;
 import com.stuman.dto.CourseDto;
 
+<<<<<<< HEAD
 
 public class StudentBean  {
 
@@ -40,6 +47,79 @@ public class StudentBean  {
 
 		Student stu = new Student();
 		BeanUtils.copyProperties(stu, this);
+=======
+public class StudentBean {
+	
+	private String sno;
+	
+	private String sname;
+	
+	private Integer sgender;
+	
+	private Date sbirthday;
+	
+	private String sidno;
+	
+	private String sdept;
+	
+	private String major;
+	
+	private String field;
+	
+	private String grade;
+	
+	private String tutor;
+	
+	private Date graduationDate;
+	
+	private String degree;
+	
+	private List<Student> students;
+	
+	private List<Courseinfo> courses=new ArrayList<Courseinfo>();
+	
+	private List<Courseplan> crs = new ArrayList<Courseplan>();
+	
+	private String cno;
+
+/*	public StudentBean() throws Exception {
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		ExternalContext ec = context.getExternalContext(); 
+		HttpSession session = (HttpSession) ec.getSession(true); 
+		
+		String stu_id = (String)session.getAttribute("id");
+		
+		StudentDAO stuDao = getStudentDAO();
+		Student stu = stuDao.getStudentByID(stu_id);
+		
+		BeanUtils.copyProperties(this, stu);
+		
+		System.out.println("id:"+getSno());
+	}*/
+	public StudentDAO getStudentDAO() {
+		return DAOFactory.getInstance().createStudentDAOImp();
+	}
+	public SelectCourseDAO getSelectCourseDAO(){
+		return DAOFactory.getInstance().createSelectCourseDAOImp();
+	}
+	public CourseInfoDAO getCourseinfoDAO(){
+		return DAOFactory.getInstance().createCourseInfoDAOImp();
+	}
+	public CoursePlanDAO getCourseplanDAO() {
+		return DAOFactory.getInstance().createCoursePlanDAOImp();
+	}
+	public String CheckStuInfo() throws Exception {
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		ExternalContext ec = context.getExternalContext(); 
+		HttpSession session = (HttpSession) ec.getSession(true); 
+		
+		String stu_id = (String)session.getAttribute("id");
+		
+		StudentDAO stuDao = getStudentDAO();
+		Student stu = stuDao.getStudentByID(stu_id);
+		
+		BeanUtils.copyProperties(this, stu);
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 		
 		//调用DAO方法保存数据库
 		if (stuDao.saveStudent(stu)) {
@@ -86,6 +166,7 @@ public class StudentBean  {
 			return "success";
 		}	
 		
+<<<<<<< HEAD
 		return null;
 	}
 	/**
@@ -141,10 +222,19 @@ public class StudentBean  {
 	public String preModifyStudent(){
 
 		//JSF获取session
+=======
+		StudentDAO stuDao = getStudentDAO();
+		students = stuDao.listStudent();
+		return "success";
+	}
+	
+	public String GetSelectedCourses() {
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 		FacesContext context = FacesContext.getCurrentInstance(); 
 		ExternalContext ec = context.getExternalContext(); 
 		HttpSession session = (HttpSession) ec.getSession(true); 
 		
+<<<<<<< HEAD
 		String stu_id = (String)session.getAttribute("stuid");
 		System.out.println("Student_id = " + stu_id);
 		StudentDAO stuDao = DAOFactory.getInstance().createStudentDAO();
@@ -178,6 +268,45 @@ public class StudentBean  {
 	private String email;
 
 	private String student_id;
+=======
+		sno = (String)session.getAttribute("id");
+		
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		CourseInfoDAO courDao=getCourseinfoDAO();
+		CoursePlanDAO courplanDao = getCourseplanDAO();
+		List<Selectcourse> sc=selDao.listSelectCourseBySno(sno);
+		int number=sc.size();
+		System.out.println(sc.size());
+		for(int i=0;i<number;i++){
+			Courseinfo cour=courDao.getCourseInfoById(sc.get(i).getId().getCno());
+			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
+			courses.add(cour);
+			crs.add(courplan);
+		}
+		return "success";
+	}
+	
+	public List<Courseplan> getCrs() {
+		return crs;
+	}
+	public void setCrs(List<Courseplan> crs) {
+		this.crs = crs;
+	}
+	public String DropCourse() {
+
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		selDao.deleteSelectCourseById(sno, cno);	
+		return "success";
+	}
+	/*public String DropCourseByID(String cno){
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		selDao.deleteSelectCourseById(sno, cno);
+		return "success";	
+	}*/
+	public String getSno() {
+		return sno;
+	}
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 	
 	private Student student;
 	

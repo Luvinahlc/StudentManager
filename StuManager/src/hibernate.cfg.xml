@@ -16,11 +16,18 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<mapping resource="com/stuman/domain/Admin.hbm.xml" />
 		<mapping resource="com/stuman/domain/Student.hbm.xml" />
+<<<<<<< HEAD
 		<mapping resource="com/stuman/domain/Teacher.hbm.xml" />
 		<mapping resource="com/stuman/domain/Course.hbm.xml" />
 		<mapping resource="com/stuman/domain/Classes.hbm.xml" />
 		<mapping resource="com/stuman/domain/Enrol.hbm.xml" />
 
+=======
+		<mapping resource="com/stuman/domain/Courseinfo.hbm.xml" />
+		<mapping resource="com/stuman/domain/Courseplan.hbm.xml" />
+		<mapping resource="com/stuman/domain/Selectcourse.hbm.xml" />
+		<mapping resource="com/stuman/domain/Academicdean.hbm.xml" />
+>>>>>>> 33fc15ea2e1f1484ab5686ee1e19a7894d6cb3a4
 	</session-factory>
 
 </hibernate-configuration>
