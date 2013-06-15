@@ -15,7 +15,7 @@
 			jdbc:mysql://localhost:3306/STU?useUnicode=true&amp;characterEncoding=utf8
 		</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">huangluchen</property>
+		<property name="connection.password">681122</property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>

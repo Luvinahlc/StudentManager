@@ -23,6 +23,5 @@ public interface AcademicDeanDAO {
 	List<Ungraduate> getUngraduateinfo();
 	
 	Ungraduate getUngraduateinfoBySno(String sno);
-	
 		
 }

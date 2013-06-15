@@ -1,6 +1,5 @@
 package com.stuman.web.jsf.bean;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,10 +7,8 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import com.stuman.dao.AcademicDeanDAO;
 import com.stuman.dao.DAOFactory;
-import com.stuman.dao.StudentDAO;
 import com.stuman.domain.Academicdean;
 import com.stuman.domain.Applyinfo;
-import com.stuman.domain.Student;
 import com.stuman.domain.Ungraduate;
 
 public class AcademicBean {
@@ -32,39 +29,14 @@ public class AcademicBean {
 	
 	private List<Ungraduate> ungraduate;
 	
-	private List<String> grade;
-	
 	private Ungraduate ungrad;
-	
-	private List<Student> students=new ArrayList<Student>();
 	
 	public AcademicDeanDAO getAcademicDeanDAO() {
 		return DAOFactory.getInstance().createAcademicDeanDAOImp();
 	}
-	
-	public StudentDAO getStudentDAO() {
-		return DAOFactory.getInstance().createStudentDAOImp();
-	}
-	public boolean getStudentByGrade(String grade){
-		StudentDAO stuDao = getStudentDAO();
-		students=stuDao.getStudentByGrade(grade);
-		return true;
-	}
-	public boolean getAllGrade(){
-		StudentDAO stuDao = getStudentDAO();
-		grade=stuDao.getStudentGrade();
-		if(grade!=null)
-			return true;
-		return false;
-	}
-
 	public boolean getApplyinformation(){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
-		StudentDAO stuDao = getStudentDAO();
 		applyinfo=acaDao.getApplyinfo();
-		for(int i=0;i<applyinfo.size();i++){
-			students.add((Student)stuDao.getStudentByID(applyinfo.get(i).getId().getSno()));
-		}
 		return true;
 	}
 	public boolean getApplyinfoBySno(String sno){
@@ -74,11 +46,7 @@ public class AcademicBean {
 	}
 	public boolean getUngraduateInformation(){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
-		StudentDAO stuDao = getStudentDAO();
 		ungraduate=acaDao.getUngraduateinfo();
-		for(int i=0;i<ungraduate.size();i++){
-			students.add((Student)stuDao.getStudentByID(ungraduate.get(i).getSno()));
-		}
 		return true;
 	}
 	public List<Applyinfo> getApplyinfo() {
@@ -141,14 +109,6 @@ public class AcademicBean {
 	public Date getAbirthday() {
 		return abirthday;
 	}
-	public List<String> getGrade() {
-		return grade;
-	}
-
-	public void setGrade(List<String> grade) {
-		this.grade = grade;
-	}
-
 	public void setAbirthday(Date abirthday) {
 		this.abirthday = abirthday;
 	}
@@ -175,12 +135,6 @@ public class AcademicBean {
 	}
 	public void setUngraduate(List<Ungraduate> ungraduate) {
 		this.ungraduate = ungraduate;
-	}
-	public List<Student> getStudents() {
-		return students;
-	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
 	}
 	
 }

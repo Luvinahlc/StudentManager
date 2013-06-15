@@ -2,9 +2,6 @@
 <%@page language="java" contentType="text/html; charset=GBK"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
-<jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
-<%	String sno = (String)session.getAttribute("id");
-	StudentBean.countCredit(sno); %>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>南京大学教务系统</title>
@@ -26,71 +23,14 @@
   </ul>
 </div>
 	</div>
-	
-	
-<html>
-  <head>
-    <base href="login.faces">
-    <title>学分信息</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	
-    <link href="css/table.css" rel="stylesheet" type="text/css">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<style type="text/css">
-<!--
-.STYLE2 {
-	font-size: 14px;
-	font-weight: bold;
-	color: #ffffff;
-}
+	<!--  
+<div id="Function">
+    <ul>
+	  <li><a href="student/studentinfo/studentinfo.do?method=searchAllList"><img src="images/personal.png"><br />毕业信息核对</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/achievement.png"><br />基本信息修改与查看</a></li>
+	</ul>
+</div>
 -->
-</style>
-
-  </head>
-
-  <body class="BODY"  leftmargin="50" rightmargin="50">
-   
-  <div  align="center">
-    <TABLE width="100%"  height="10%" align="left" >
-      <TR>
-        <TD colspan="4">&nbsp;</TD>
-      </TR>
-      
-      <TR align="left">
-      	<TD width="50">&nbsp;</TD>
-        <TD width="150"  align="right" valign="top">
-			<div>
-				<table  width="100%" height="100%" border="0"  bordercolor="#3366CC">
-				       <tr></tr><tr></tr>
-					   <tr class="TEXT_TITLE"><td>学分统计 </td></tr>
-				       <tr height="5"><td > </td></tr>   
-			   </table>
-			</div>
-		</TD>
-		<TD width="10" >&nbsp;</TD>
-        <TD align="left" valign="top">
-	    	<table width="95%"  class="TABLE_BODY">
-				<tr class="TABLE_TH">
-				  <th align="center">总学分数</th>
-				  
-				</tr>
-				
-					<tr class="TABLE_TR_02">				    					    
-						<td align="center"><%=StudentBean.getSum() %></td>
-						
-					</tr>					
-				
-			</table>				
-		</TD>
-      </TR>
-    </TABLE>
-  </div>
-  </body>
-</html>
-	
 <div class="Line"></div>
   </body>
 </html>
