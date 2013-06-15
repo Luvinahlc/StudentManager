@@ -27,7 +27,9 @@ StudentBean.CheckStuInfo(); %>
     <li id="studentinfo"><a href="stu_information.faces">个人信息</a></li>
     <li id="teachinginfo"><a href="stu_gradelook.faces">成绩查看</a></li>
     <li id="teachinginfo"><a href="stu_courseplan.faces">学期选课</a></li>
-
+    <li id="studentinfo"><a href="stu_applicationsystem.faces">申报系统</a></li>
+    <li id="teachinginfo"><a href="stu_notice.faces">通知查看</a></li>
+    <li id="teachinginfo"><a href="stu_courseassess.faces">课程评估</a></li>
   </ul>
 </div>
 	</div>

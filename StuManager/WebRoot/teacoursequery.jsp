@@ -21,12 +21,12 @@
 <div id="Nav">
   <ul>
     <li id="homepage"><a href="teacher.faces">首  页</a></li>
-    <li id="studentinfo"><a href="teaupdatetea.faces">个人信息</a></li>
-    <li id="teachinginfo"><a href="teacoursemanage.faces">课程管理</a></li>
-    <li id="teachinginfo"><a href="teastudentmanage.faces">学生管理</a></li>
-    <li id="teachinginfo"><a href="teacoursescheduling.faces">排课系统</a></li>
-    <li id="studentinfo"><a href="teacourseselectingresult.faces">选课结果</a></li>
-    <li id="studentinfo"><a href="teascorequery.faces">成绩管理</a></li>
+    <li id="studentinfo"><a href="updatetea.faces">个人信息</a></li>
+    <li id="teachinginfo"><a href="coursemanage.faces">课程管理</a></li>
+    <li id="teachinginfo"><a href="studentmanage.faces">学生管理</a></li>
+    <li id="teachinginfo"><a href="coursescheduling.faces">排课系统</a></li>
+    <li id="studentinfo"><a href="courseselectingresult.faces">选课结果</a></li>
+    <li id="studentinfo"><a href="scorequery.faces">成绩管理</a></li>
    
   </ul>
 </div>
