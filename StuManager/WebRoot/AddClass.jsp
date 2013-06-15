@@ -42,7 +42,7 @@
 				</td>
 				<td>
 					<%--<select name="tea_id" size="1" id="tea_id">
-						<option value="张三">张三	</option>
+						<option value="张三">张是	</option>
 						<option value="李四">李四</option>
 						<option value="王五">王五</option>
 					</select>
