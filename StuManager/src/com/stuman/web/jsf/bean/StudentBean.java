@@ -93,7 +93,14 @@ public class StudentBean {
 		Student stu = stuDao.getStudentByID(sno);
 		
 		BeanUtils.copyProperties(this, stu);
-		
+		sname=stu.getSname();
+		sbirthday=stu.getSbirthday();
+		sdept=stu.getSdept();
+		field=stu.getField();
+		major=stu.getMajor();
+		tutor=stu.getTutor();
+		graduationDate=stu.getGraduationDate();
+		degree=stu.getDegree();
 		System.out.println("id:"+getSno());
 		
 		return "success";	
@@ -330,6 +337,7 @@ public class StudentBean {
 	}
 	
 	public void setDegree(String degree) throws Exception {
+
 		degree =new String(degree .getBytes("ISO-8859-1"),"utf8");
 		this.degree = degree;
 	}

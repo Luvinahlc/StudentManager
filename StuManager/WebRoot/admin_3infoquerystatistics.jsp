@@ -3,62 +3,31 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%  
-	String submit=request.getParameter("submit");
-	String gather=request.getParameter("gather");
-	StudentBean.setMsg("");
-	if(submit!=null)
+	String str=request.getParameter("submit");
+	if(str!=null)
 	{
-	String sno=request.getParameter("sno");
+		str=new String(str.getBytes("ISO-8859-1"),"utf8"); 
+		System.out.println(str);
+		StudentBean.setMsg("");
 	
-	if(sno==null){StudentBean.setSno("");StudentBean.setMsg("");}
-	if(sno!=null){	
-		StudentBean.setSno(sno);
-		if(StudentBean.getSno()==""){
-			StudentBean.setMsg("");
-		}
-		else if(StudentBean.checkStuExist()==true)
-		{	
-			System.out.println("true");
-			StudentBean.CheckStuInfobyId(sno);
-			StudentBean.setMsg("");
-		}
-		
-		else
+		if(str.contains("查询"))
 		{
-			StudentBean.setMsg("该学生序号不存在");
-			StudentBean.setSno("");
-			}
-		request.removeAttribute("sno");
-	}
-	}
-	else if(gather!=null)
-	{
-		String stuno=request.getParameter("stuno");
-			if(stuno==null){StudentBean.setSno("");StudentBean.setMsg("");}
-			if(stuno!=null){	
-				StudentBean.setSno(stuno);
-				if(StudentBean.checkStuExist()==true)
-				{	
-				System.out.println("true");
-				StudentBean.CheckStuInfobyId(stuno);
-				StudentBean.setMsg("");
-				}
-				else
-				{
-				StudentBean.setMsg("该学生序号不存在");
-				StudentBean.setSno("");
-				}
-				request.removeAttribute("sno");
-			}
-		String dept=request.getParameter("deps");
-		StudentBean.setdptname(dept);
-		StudentBean.listStudentbydept(dept);
-		request.removeAttribute("stuno");
-	}
-	 
+			String sno=request.getParameter("sno");
+			StudentBean.queryStuInfo(sno);	
+		}
+		if(str.contains("统计"))
+		{
+			String sno=request.getParameter("stuno");
+			StudentBean.queryStuInfo(sno);
+			StudentBean.setMsg("");
+			String dept=request.getParameter("deps");
+			StudentBean.setdptname(dept);
+			StudentBean.listStudentbydept(dept);
+		}
+	}	 
 %>
 <%StudentBean.listdepname(); %>
-<%  %>
+
 <html>
   <head>
     <title>南京大学教务系统</title>
@@ -143,7 +112,7 @@
 						</tr>
 					
 			</table>
-<br>
+
 学籍信息统计
 <hr >
 <div align="center">
@@ -156,7 +125,7 @@
 					<%} %>
 					</select>
 					<br/>
-					<input type="submit" name="gather" value="查询">
+					<input type="submit" name="submit" value="统计">
 					
 		</form>
 </div>

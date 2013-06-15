@@ -108,6 +108,7 @@ public class SelectCourseBean {
 	}
 
 	public boolean checkstuExist()
+	
 	{
 		StudentDAO stuDao=getStudentDAO();
 		return stuDao.isStuExist(sno);

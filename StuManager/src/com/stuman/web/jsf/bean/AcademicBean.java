@@ -7,10 +7,16 @@ import java.util.List;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.stuman.dao.AcademicDeanDAO;
+import com.stuman.dao.CourseInfoDAO;
+import com.stuman.dao.CoursePlanDAO;
 import com.stuman.dao.DAOFactory;
+import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
 import com.stuman.domain.Academicdean;
 import com.stuman.domain.Applyinfo;
+import com.stuman.domain.Courseinfo;
+import com.stuman.domain.Courseplan;
+import com.stuman.domain.Selectcourse;
 import com.stuman.domain.Student;
 import com.stuman.domain.Ungraduate;
 
@@ -36,6 +42,16 @@ public class AcademicBean {
 	
 	private Ungraduate ungrad;
 	
+	private String msg;
+	
+	private List<Student> stus = new ArrayList<Student>();
+	
+	private List<Courseinfo> courses = new ArrayList<Courseinfo>();
+	
+	private List<Selectcourse> scr = new ArrayList<Selectcourse>();
+	
+	private List<Courseplan> crs = new ArrayList<Courseplan>();
+	
 	private List<Student> students=new ArrayList<Student>();
 	
 	public AcademicDeanDAO getAcademicDeanDAO() {
@@ -45,6 +61,52 @@ public class AcademicBean {
 	public StudentDAO getStudentDAO() {
 		return DAOFactory.getInstance().createStudentDAOImp();
 	}
+	public SelectCourseDAO getSelectCourseDAO(){
+		return DAOFactory.getInstance().createSelectCourseDAOImp();
+	}
+	
+	public CourseInfoDAO getCourseinfoDAO(){
+		return DAOFactory.getInstance().createCourseInfoDAOImp();
+	}
+	
+	public CoursePlanDAO getCourseplanDAO() {
+		return DAOFactory.getInstance().createCoursePlanDAOImp();
+	}
+	public String CheckAcdInfo() throws Exception {
+		
+		AcademicDeanDAO acdDao = getAcademicDeanDAO();
+		Academicdean acd = acdDao.getAcademicDeanById(ano);
+		
+		BeanUtils.copyProperties(this, acd);
+		ano = acd.getAno();
+		aname = acd.getAname();
+		aidno = acd.getAidno();
+		adept = acd.getAdept();
+		
+		System.out.println("id:"+getAno());
+		
+		return "success";	
+	}
+	public String GetCourses() {
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		CourseInfoDAO courDao=getCourseinfoDAO();
+		CoursePlanDAO courplanDao = getCourseplanDAO();
+		StudentDAO stuDao = getStudentDAO();
+
+		courses.addAll(courDao.listCourseInfoByDept(adept));
+		stus.addAll(stuDao.listStudentByDept(adept));
+		
+		for(int i = 0; i < courses.size(); i++){
+			if(selDao.listSelectCourseByCno(courses.get(i).getCno()) != null){
+				scr.addAll(selDao.listSelectCourseByCno(courses.get(i).getCno()));				
+			}
+			if(courplanDao.getCoursePlanById(courses.get(i).getCno()) != null){
+				crs.add(courplanDao.getCoursePlanById(courses.get(i).getCno()));
+			}
+		}
+		return "success";
+	}
+
 	public boolean getStudentByGrade(String grade){
 		StudentDAO stuDao = getStudentDAO();
 		students=stuDao.getStudentByGrade(grade);
@@ -93,6 +155,10 @@ public class AcademicBean {
 		if(ungrad==null)
 			return false;
 		return true;
+	}
+	public boolean CheckCourseExist(String cno){
+		CourseInfoDAO crsDao = getCourseinfoDAO();
+		return crsDao.isCourseExist(cno);
 	}
 	public String CheckAcademicDean() throws Exception{		
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
@@ -181,6 +247,163 @@ public class AcademicBean {
 	}
 	public void setStudents(List<Student> students) {
 		this.students = students;
+	}
+	public List<Selectcourse> getSelectcourse(){
+		return scr;
+	}
+	
+	public List<Courseinfo> getCourseinfo(){
+		return courses;
+	}
+	
+	public List<Courseplan> getCourseplan(){
+		return crs;
+	}
+	
+	public void setMsg(String msg){
+		this.msg = msg;
+	}
+	
+	public String getMsg(){
+		if(msg==null)
+			return "";
+		return msg;
+	}
+
+	public String ctimeBycno(String cno){
+		if(cno != null){
+			for(int i = 0; i < crs.size(); i++){
+				if(crs.get(i).getCno().equals(cno))
+					return crs.get(i).getCtime();
+			}
+		}
+		return " ";
+	}
+	
+	public String cplaceBycno(String cno){
+		if(cno != null){
+			for(int i = 0; i < crs.size(); i++){
+				if(crs.get(i).getCno().equals(cno))
+					return crs.get(i).getCplace();
+			}
+		}
+		return " ";
+	}
+	
+	public String eplaceBycno(String cno){
+		if(cno != null){
+			for(int i = 0; i < crs.size(); i++){
+				if(crs.get(i).getCno().equals(cno))
+					return crs.get(i).getCplace();
+			}
+		}
+		return " ";
+	}
+	
+	public String etimeBycno(String cno){
+		if(cno != null){
+			for(int i = 0; i < crs.size(); i++){
+				if(crs.get(i).getCno().equals(cno))
+					return crs.get(i).getCplace();
+			}
+		}
+		return " ";
+	}
+	
+	public String setPlanBycno(String cno, String cplace, String ctime, String eplace, String etime) throws Exception{
+		if(cno != null){
+			cplace = new String(cplace.getBytes("ISO-8859-1"),"utf8");
+			ctime = new String(ctime.getBytes("ISO-8859-1"),"utf8");
+			eplace = new String(eplace.getBytes("ISO-8859-1"),"utf8");
+			etime = new String(etime.getBytes("ISO-8859-1"),"utf8");
+			
+			for(int i = 0; i < crs.size(); i++){
+				if(crs.get(i).getCno().equals(cno)){
+					crs.get(i).setCtime(ctime);
+					crs.get(i).setCplace(cplace);
+					if(eplace != null)
+						crs.get(i).setExamPlace(eplace);
+					if(etime != null)
+						crs.get(i).setExamTime(etime);
+					CoursePlanDAO crsplanDao = getCourseplanDAO();
+					crsplanDao.updateCoursePlan(crs.get(i));
+					return "success";
+				}
+				
+				
+			}
+			return "cno not find";
+		}
+		return "cno is null";
+	}
+	
+	public String typeBycno(String cno){
+		for(int i = 0; i < crs.size(); i++){
+			if(crs.get(i).getCno().equals(cno))
+				return crs.get(i).getClassType();
+		}
+		return " ";
+	}
+	
+	public String teaBycno(String cno){
+		for(int i = 0; i < crs.size(); i++){
+			if(crs.get(i).getCno().equals(cno))
+				return crs.get(i).getTeacher();
+		}
+		return " ";
+	}
+
+	public String snameBysno(String sno){
+		for(int i = 0; i < crs.size(); i++){
+			if(stus.get(i).getSno().equals(sno))
+				return stus.get(i).getSname();
+		}
+		return "error";
+	}
+	
+	public String gradeBysno(String sno){
+		for(int i = 0; i < crs.size(); i++){
+			if(stus.get(i).getSno().equals(sno))
+				return stus.get(i).getGrade();
+		}
+		return "error";
+	}
+	public boolean addCourse(String cno,String cname,String credit,String type, String teacher) throws Exception{
+		Courseinfo crsinfo = new Courseinfo();
+		Courseplan crsplan = new Courseplan();
+		
+		cno = new String(cno.getBytes("ISO-8859-1"),"utf8");
+		cname = new String(cname.getBytes("ISO-8859-1"),"utf8");
+		credit = new String(credit.getBytes("ISO-8859-1"),"utf8");
+		type = new String(type.getBytes("ISO-8859-1"),"utf8");
+		teacher = new String(teacher.getBytes("ISO-8859-1"),"utf8");
+		
+		Integer temp = Integer.valueOf(credit);
+		
+		crsinfo.setCno(cno);
+		crsinfo.setCname(cname);
+		crsinfo.setCredit(temp);
+		crsinfo.setHour(temp);
+		crsinfo.setCdept(adept);
+		crsplan.setCno(cno);
+		crsplan.setTeacher(teacher);
+		if(type.equals("通修"))
+			temp = 0;
+		if(type.equals("通识"))
+			temp = 1;
+		if(type.equals("平台"))
+			temp = 2;
+		if(type.equals("核心"))
+			temp = 3;
+		if(type.equals("选修"))
+			temp = 4;		
+		crsplan.setType(temp);
+		
+		CourseInfoDAO crsDao = getCourseinfoDAO();
+		CoursePlanDAO crsplanDao = getCourseplanDAO();
+		if(crsDao.addCourseInfo(crsinfo) && crsplanDao.addCoursePlan(crsplan))
+			return true;
+		return false;
 	}
 	
 }

@@ -8,13 +8,32 @@
 	String birthday=request.getParameter("birthday");
 	System.out.println("bir:"+birthday);
 	if(idno!=null&&birthday!=null){
-		StudentBean.setSidno(idno);
-		System.out.println(birthday);
-		StudentBean.setSbirthday(Date.valueOf(birthday));
-		if(StudentBean.modifyStuInfo())
-			StudentBean.setMsg("修改成功");
-		else
-			StudentBean.setMsg("修改失败");
+		if(idno.length()!=18){
+			StudentBean.setMsg("请输入正确的身份证号");
+		}
+		else{
+			boolean flag=true;
+			for(int i=0;i<17;i++){
+				if(!Character.isDigit(idno.charAt(i))){
+					flag=false;
+					break;
+				}
+			}
+			if(!(Character.isDigit(idno.charAt(17))||idno.charAt(17)=='x'||idno.charAt(17)=='X')){
+				flag=false;
+			}
+			if(flag){
+				StudentBean.setSidno(idno);
+				System.out.println(birthday);
+				StudentBean.setSbirthday(Date.valueOf(birthday));
+				if(StudentBean.modifyStuInfo())
+					StudentBean.setMsg("修改成功");
+				else
+					StudentBean.setMsg("修改失败");
+				}
+			else
+				StudentBean.setMsg("请输入正确的身份证号");
+		}
 			
 	}
 	request.removeAttribute("idno");

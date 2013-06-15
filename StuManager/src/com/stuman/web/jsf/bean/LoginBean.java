@@ -38,6 +38,10 @@ public class LoginBean {
 		//获得下拉的登陆类型
 		username = getUsername();
 		password = getPassword();
+		if(username==""||password==""||username==null||password==null){
+			msg="请正确输入用户名和密码";
+			return null;
+		}
 		try {
 			HibernateUtil.beginTransaction();
 			int identity = -1;
