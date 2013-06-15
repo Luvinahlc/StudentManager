@@ -7,21 +7,27 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import com.stuman.dao.StudentDAO;
+
+import com.stuman.dao.CourseInfoDAO;
 import com.stuman.dao.hibernate.HibernateUtil;
-import com.stuman.domain.Student;
+import com.stuman.domain.Courseinfo;
 
-public class StudentDAOImp implements StudentDAO {
+public class CourseInfoDAOImp implements CourseInfoDAO{
 
-	private static Log log = LogFactory.getLog(StudentDAOImp.class);
+	private static Log log = LogFactory.getLog(CourseInfoDAOImp.class);
 
-	public List listStudent() {
-		// TODO Auto-generated method stub
+	// 获得课程列表
+	public List listCourseInfo() {
 		try {
+			// 获得Session
 			Session s = HibernateUtil.currentSession();
+			// 开始事务
 			HibernateUtil.beginTransaction();
-			List results = s.createQuery("from Student stu").list();
+			// 执行操作
+			List results = s.createQuery("from Courseinfo cour").list();
+			// 提交事务
 			HibernateUtil.commitTransaction();
+			// 关闭Session
 			HibernateUtil.closeSession();
 			if (results != null && results.size() > 0) {
 				return results;
@@ -32,87 +38,89 @@ public class StudentDAOImp implements StudentDAO {
 		return null;
 	}
 
-	public boolean deleteStudentByID(String id) {
-		// TODO Auto-generated method stub
+	public List listCourseInfoByDept(String deptName){
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
-			Student stu = (Student) s.load(Student.class, id);
+			List results = s.createQuery("from Courseinfo as courinfo where courinfo.cdept =:DeptName").setString("DeptName", deptName).list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+	
+	// 通过指定的课程编号删除课程信息
+	public boolean deleteCourseInfoById(String id) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Courseinfo cour = (Courseinfo) s.load(Courseinfo.class, id);
+			System.out.println("delete Course info by id:"+cour.getCno());
+			s.delete(cour);
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			return true;
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
+	}
+
+	// 通过课程编号获得课程信息
+	public Courseinfo getCourseInfoById(String id) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Courseinfo cour = (Courseinfo) s.load(Courseinfo.class, id);
+			//System.out.println("get Courseinfo by id="+cour.getCno());
+			System.out.println("get Courseinfo cname="+cour.getCredit());
 			
-			s.delete(stu);
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
-			return true;		
-		} catch (HibernateException e) {
-			log.fatal(e);
-		}		
-		return false;
-	}
-
-	public Student getStudentByID(String id) {
-		// TODO Auto-generated method stub
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			Student stu = (Student) s.load(Student.class, id);
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			return stu;		
-		} catch (HibernateException e) {
-			log.fatal(e);
-		}		
-		return null;
-	}
-	
-	//new 
-	public List listStudentByDept(String deptid) {
-		// TODO Auto-generated method stub
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			List results = s.createQuery("from Student as stu where stu.sdept=:dept").setString("dept",deptid).list();
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			if (results != null && results.size() > 0) {
-				return results;
-			}
+			return cour;
 		} catch (HibernateException e) {
 			log.fatal(e);
 		}
 		return null;
 	}
-	// new 
-	
-	public boolean updateStudent(Student student) {
-		// TODO Auto-generated method stub
+
+	// 更新课程信息
+	public boolean updateCourseInfo(Courseinfo crInfo) {
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
-			s.update(student);
-			System.out.println("update student sno =" + student.getSno());
+			s.update(crInfo);
+			System.out.println("update Courseinfo cno =" + crInfo.getCno());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
-			return true;		
+			return true;
 		} catch (HibernateException e) {
 			log.fatal(e);
-		}		
+		}
 		return false;
 	}
 
-	public boolean addStudent(Student stu) {
-		// TODO Auto-generated method stub
+	// 保存课程信息
+	public boolean addCourseInfo(Courseinfo crInfo) {
 		try {
 			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();			
-			s.saveOrUpdate(stu);
-			System.out.println("save student sno =" + stu.getSno());
+			HibernateUtil.beginTransaction();
+			s.saveOrUpdate(crInfo);
+			System.out.println("add Course cno =" + crInfo.getCno());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
-			return true;		
+			return true;
 		} catch (HibernateException e) {
 			log.fatal(e);
-		}		
+		}
 		return false;
 	}
+
+
 
 }

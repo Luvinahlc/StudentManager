@@ -6,13 +6,13 @@ import com.stuman.domain.Student;
 
 public interface StudentDAO {
 	
-	List getStudent();
+	List listStudent();//right
 	
-	boolean deleteStudentByID(String id);
-	boolean updateStudent(Student stu);
-	boolean saveStudent(Student stu);
-	
-	Student getStudentByID(String id);
+	boolean deleteStudentByID(String id);//right
+	boolean updateStudent(Student stu);//right
+	boolean addStudent(Student stu);//right	
+	List listStudentByDept(String deptid);//right
+	Student getStudentByID(String id);//right
 	
 
 }
