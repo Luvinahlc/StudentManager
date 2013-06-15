@@ -1,7 +1,37 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<<<<<<< HEAD
+<%  
+	String str=request.getParameter("submit");
+	if(str!=null)
+	{
+		str=new String(str.getBytes("ISO-8859-1"),"utf8"); 
+		System.out.println(str);
+		StudentBean.setMsg("");
+	
+		if(str.contains("查询"))
+		{
+			String sno=request.getParameter("sno");
+			StudentBean.queryStuInfo(sno);	
+		}
+		if(str.contains("统计"))
+		{
+			String sno=request.getParameter("stuno");
+			StudentBean.queryStuInfo(sno);
+			StudentBean.setMsg("");
+			String dept=request.getParameter("deps");
+			StudentBean.setdptname(dept);
+			StudentBean.listStudentbydept(dept);
+		}
+	}	 
+%>
+<%StudentBean.listdepname(); %>
+
+<html>
+=======
 <html >
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
   <head>
     <title>南京大学教务系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,6 +53,84 @@
   </ul>
 </div>
 	</div>
+<<<<<<< HEAD
+
+<div align="center">
+学籍信息查询
+<hr >
+				<font style="font-size: 12px;font-weight:bold;color: #FF0000"></font><br>
+					<form action="admin_3infoquerystatistics.jsp" method="post" >	
+						学号: 
+						<input type="text" name="sno">
+							<br/>
+						<input type="submit" name="submit" value="查询">
+							<br/>
+						<label style="color :#FF0000"><%=StudentBean.getMsg()%></label>
+							<br />
+					</form>
+</div>
+
+
+<div id="d11" align="center" >
+			<table width="90%" CLASS="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
+				<tr><th colspan="7"  class="TABLE_TH" >学籍信息</th></TR>
+						<tr height="27">
+							<td rowspan="5" align="left" width="100"><img src="images/common.jpg" width="100" height="135"/></td>
+							<td  class="TABLE_TD_02"  width="150" >学号</td>
+							<td class="TABLE_TD_01" width="150" ><%=StudentBean.getSno()%></td>
+							<td class="TABLE_TD_02" width="150" >姓名</td>
+							<td class="TABLE_TD_01" width="150" ><%=StudentBean.getSname() %></td>
+							<td class="TABLE_TD_02" width="150" >性别</td>
+							<td class="TABLE_TD_01" width="150" ><%=StudentBean.getGender() %></td>
+						</tr>
+						<tr height="27">
+							<td  class="TABLE_TD_02">出生日期</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getsbirthday() %></TD>
+							<td  class="TABLE_TD_02">身份证号</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=StudentBean.getSidno() %></TD>
+						</tr>
+						
+						<tr height="27">
+						<td  class="TABLE_TD_02">年级</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getGrade() %></TD>
+							<td  class="TABLE_TD_02">毕业时间</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getgraduationDate() %></TD>
+							<td  class="TABLE_TD_02">学位</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getDegree() %></TD>
+						</tr>
+						
+						<tr height="27">
+							<td  class="TABLE_TD_02">所在院系</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getSdept() %></TD>
+							<td  class="TABLE_TD_02">所在专业</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=StudentBean.getMajor() %></TD>
+						</tr>
+
+						<tr height="27">	
+							<td  class="TABLE_TD_02">专业方向</TD>
+							<td class="TABLE_TD_01"><%=StudentBean.getField() %></TD>						
+							<td  class="TABLE_TD_02">导师</TD>
+							<td colspan="3" class="TABLE_TD_01"><%=StudentBean.getTutor() %></TD>
+						</tr>
+					
+			</table>
+
+学籍信息统计
+<hr >
+<div align="center">
+		<form action="admin_3infoquerystatistics.jsp?stuno=<%=StudentBean.getSno()%>" method="post" >
+				  院系	
+				 <select name="deps">
+				<%int listnum=StudentBean.getdepname().size();
+				   for(int i=0;i<listnum;i++){%>
+					<option value="<%=StudentBean.getdepname().get(i)%>"><%= StudentBean.getdepname().get(i)%></option>
+					<%} %>
+					</select>
+					<br/>
+					<input type="submit" name="submit" value="统计">
+					
+		</form>
+=======
 	<!-- 
 <div id="Function">
     <ul>
@@ -31,6 +139,7 @@
 	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective.png"><br />查看与修改学籍信息</a></li>
 	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective_public_renew.png"><br />学分统计</a></li>
 	</ul>
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 </div>
 <div class="Line"></div>
  -->
