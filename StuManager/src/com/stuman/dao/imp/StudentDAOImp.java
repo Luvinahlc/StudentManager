@@ -15,12 +15,12 @@ public class StudentDAOImp implements StudentDAO {
 
 	private static Log log = LogFactory.getLog(StudentDAOImp.class);
 
-	public List<Student> listStudent() {
+	public List getStudent() {
 		// TODO Auto-generated method stub
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
-			List<Student> results = s.createQuery("from Student stu").list();
+			List results = s.createQuery("from Student stu").list();
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			if (results != null && results.size() > 0) {
@@ -31,28 +31,16 @@ public class StudentDAOImp implements StudentDAO {
 		}
 		return null;
 	}
-	public List<String> getStudentGrade() {
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			List<String> results = s.createQuery("select distinct stu.grade from Student as stu").list();
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			if (results != null && results.size() > 0) {
-				return results;
-			}
-		} catch (HibernateException e) {
-			log.fatal(e);
-		}
-		return null;
-	}
+
 	public boolean deleteStudentByID(String id) {
 		// TODO Auto-generated method stub
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
-			Student stu = (Student) s.get(Student.class, id);
-			
+			Student stu = (Student) s.load(Student.class, id);
+			HibernateUtil.commitTransaction();
+//			System.out.println(stu.getId());
+			HibernateUtil.beginTransaction();
 			s.delete(stu);
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
@@ -68,7 +56,7 @@ public class StudentDAOImp implements StudentDAO {
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
-			Student stu = (Student) s.get(Student.class, id);
+			Student stu = (Student) s.load(Student.class, id);
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return stu;		
@@ -77,33 +65,14 @@ public class StudentDAOImp implements StudentDAO {
 		}		
 		return null;
 	}
-	
-	//new 
-	public List<Student> listStudentByDept(String deptid) {
-		// TODO Auto-generated method stub
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			List<Student> results = s.createQuery("from Student as stu where stu.sdept=:dept").setString("dept",deptid).list();
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			if (results != null && results.size() > 0) {
-				return results;
-			}
-		} catch (HibernateException e) {
-			log.fatal(e);
-		}
-		return null;
-	}
-	// new 
-	
+
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
 			s.update(student);
-			System.out.println("update student sno =" + student.getSno());
+			System.out.println("update student id =" + student.getId());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;		
@@ -113,13 +82,13 @@ public class StudentDAOImp implements StudentDAO {
 		return false;
 	}
 
-	public boolean addStudent(Student stu) {
+	public boolean saveStudent(Student stu) {
 		// TODO Auto-generated method stub
 		try {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();			
 			s.saveOrUpdate(stu);
-			System.out.println("save student sno =" + stu.getSno());
+			System.out.println("save student id =" + stu.getId());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;		
@@ -127,21 +96,6 @@ public class StudentDAOImp implements StudentDAO {
 			log.fatal(e);
 		}		
 		return false;
-	}
-	public List<Student> getStudentByGrade(String grade) {
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			List<Student> results = s.createQuery("from Student as stu where stu.grade=:sgrade").setString("sgrade",grade).list();
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			if (results != null && results.size() > 0) {
-				return results;
-			}
-		} catch (HibernateException e) {
-			log.fatal(e);
-		}
-		return null;
 	}
 
 }

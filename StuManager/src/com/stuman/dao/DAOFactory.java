@@ -1,12 +1,5 @@
 package com.stuman.dao;
 
-import com.stuman.dao.imp.AcademicDeanDAOImp;
-import com.stuman.dao.imp.CourseInfoDAOImp;
-import com.stuman.dao.imp.CoursePlanDAOImp;
-import com.stuman.dao.imp.SelectCourseDAOImp;
-import com.stuman.dao.imp.StudentDAOImp;
-import com.stuman.dao.imp.UserDAOImp;
-
 public abstract class DAOFactory {
 	
 	private static Object initLock = new Object();
@@ -46,11 +39,11 @@ public abstract class DAOFactory {
 		return factory;
 	}
 
-	public abstract StudentDAOImp createStudentDAOImp();
-	public abstract UserDAOImp createUserDAOImp();
-	public abstract AcademicDeanDAOImp createAcademicDeanDAOImp();
-	public abstract CourseInfoDAOImp createCourseInfoDAOImp();
-	public abstract CoursePlanDAOImp createCoursePlanDAOImp();
-	public abstract SelectCourseDAOImp createSelectCourseDAOImp();
+	public abstract StudentDAO createStudentDAO();
+	public abstract TeacherDAO createTeacherDAO();
+	public abstract AdminDAO createAdminDAO();
+	public abstract CourseDAO createCourseDAO();
+	public abstract ClassesDAO createClassesDAO();
+	public abstract EnrolDAO createEnrolDAO();
 
 }

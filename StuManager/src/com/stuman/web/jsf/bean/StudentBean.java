@@ -1,339 +1,291 @@
 package com.stuman.web.jsf.bean;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import com.stuman.dao.CourseInfoDAO;
-import com.stuman.dao.CoursePlanDAO;
+import com.stuman.dao.CourseDAO;
 import com.stuman.dao.DAOFactory;
-import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
-import com.stuman.domain.Courseinfo;
-import com.stuman.domain.Courseplan;
-import com.stuman.domain.Selectcourse;
-import com.stuman.domain.SelectcourseId;
-import com.stuman.domain.Selectcoursetime;
+import com.stuman.domain.Course;
 import com.stuman.domain.Student;
+import com.stuman.dto.CourseDto;
 
-public class StudentBean {
-	
-	private String sno;
-	
-	private String sname;
-	
-	private Integer sgender;
-	
-	private Date sbirthday;
-	
-	private String sidno;
-	
-	private String sdept;
-	
-	private String major;
-	
-	private String field;
-	
-	private String grade;
-	
-	private String tutor;
-	
-	private Date graduationDate;
-	
-	private String degree;
-	
-	private List<Student> students;
-	
-	private List<Courseinfo> courses=new ArrayList<Courseinfo>();
-	
-	private List<Courseplan> crs = new ArrayList<Courseplan>();
-	
-	private List<Integer> grades = new ArrayList<Integer>();
-	
-	
-	private int sum;
-	
-	private String cno;
-	
+
+public class StudentBean  {
+
+	private StudentDAO stuDao;
+
 	public StudentDAO getStudentDAO() {
-		return DAOFactory.getInstance().createStudentDAOImp();
-	}
-	public SelectCourseDAO getSelectCourseDAO(){
-		return DAOFactory.getInstance().createSelectCourseDAOImp();
-	}
-	public CourseInfoDAO getCourseinfoDAO(){
-		return DAOFactory.getInstance().createCourseInfoDAOImp();
-	}
-	public CoursePlanDAO getCourseplanDAO() {
-		return DAOFactory.getInstance().createCoursePlanDAOImp();
-	}
-	public boolean getSelectcourseTime(){
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		Selectcoursetime time=selDao.getSelectTime();
-		if (time == null)
-			System.out.println("time is null!");
-		Date now=new Date();
-		System.out.println("today date:"+now);
-		if(time==null)
-			return false;
-		if((time.getId().getStartTime().compareTo(now)<=0)&&(time.getId().getEndTime().compareTo(now)>=0))
-			return true;
-		return false;
-	}
-	public String CheckStuInfo() throws Exception {
-		StudentDAO stuDao = getStudentDAO();
-		Student stu = stuDao.getStudentByID(sno);
-		
-		BeanUtils.copyProperties(this, stu);
-		
-		System.out.println("id:"+getSno());
-		
-		return "success";	
+		return DAOFactory.getInstance().createStudentDAO();
 	}
 	
-	public String modifyStuInfo() throws Exception {
-		
-		StudentDAO stuDao = getStudentDAO();
-		Student stu=new Student();
-		
+	private DataModel dataModel = new ListDataModel();
+	
+	/**
+	 * 新增学生业务逻辑
+	 * @return
+	 * @throws Exception
+	 */
+	public String addStudent() throws Exception{
+		//获得DAO实例
+		stuDao = this.getStudentDAO();
+
+		Student stu = new Student();
 		BeanUtils.copyProperties(stu, this);
 		
-		if(stuDao.updateStudent(stu)){
+		//调用DAO方法保存数据库
+		if (stuDao.saveStudent(stu)) {
+			return "success";
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 管理员更新学生前读取数据
+	 * @return
+	 */
+	public String preUpdateStudent(){
+        this.student = (Student) dataModel.getRowData();
+        StudentDAO stuDao = DAOFactory.getInstance().createStudentDAO();
+		Student stu = stuDao.getStudentByID(student.getId());
+		setStudent(stu);
+		return "edit";
+	}
+	
+	/**
+	 * 管理员修改学生信息
+	 * @return
+	 */
+	public String editStudentByAdmin(){
+		
+		//获得DAO实例
+		stuDao = this.getStudentDAO();
+		
+		if(stuDao.updateStudent(getStudent())){
 			return "success";
 		}	
 		
 		return null;
 	}
 	
-	public String listStudent() {
+	public String delStudent(){
+		//获得DAO实例
+		stuDao = this.getStudentDAO();
+		this.student = (Student) dataModel.getRowData();
+		 
+		if(stuDao.deleteStudentByID(student.getId())){
+			return "success";
+		}	
 		
-		StudentDAO stuDao = getStudentDAO();
-		students = stuDao.listStudent();
-		return "success";
+		return null;
 	}
-	public String ChooseCourse(String cno,String teacher){
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		SelectcourseId courseid=new SelectcourseId(sno,cno); 
-		Selectcourse sltCourse = new Selectcourse(courseid,teacher);
-	
-		selDao.addSelectCourse(sltCourse);
-		return "success";
-	}
-	public String GetSelectedCourses() {
-		
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		CourseInfoDAO courDao=getCourseinfoDAO();
-		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Selectcourse> sc=selDao.listSelectCourseBySno(sno);
-		int number=sc.size();
+	/**
+	 * 返回学生列表
+	 * @return
+	 */
+    public DataModel getStudents() {
+   		//获得DAO实例
+   		stuDao = this.getStudentDAO();
+   		List list = stuDao.getStudent();
+   		dataModel.setWrappedData(list);
+        return dataModel;
+    }
+    
+    /**
+	 * 预查看成绩
+	 * @return
+	 */
+	public String preCheckMark(){
 
-		for(int i=0;i<number;i++){
-			Courseinfo cour=courDao.getCourseInfoById(sc.get(i).getId().getCno());
-			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
-			courses.add(cour);
-			crs.add(courplan);
-		}
-		return "success";
-	}
-	
-	public StudentBean() {
-	}
-	public String GetCoursesToBeChoosed() {
-		CourseInfoDAO courDao=getCourseinfoDAO();
-		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Courseinfo> sc=new ArrayList<Courseinfo>();
-		sc=courDao.listCourseInfo();
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		for(int i=0;i<sc.size();i++){
-			if(!selDao.courseChoosed(sno, sc.get(i).getCno())){
-				courses.add(sc.get(i));
-				Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getCno());
-				crs.add(courplan);
-			}
-		}
-		
-		return "success";
-	}
-	
-	public String getCourseGrades() {
+		//JSF获取session
 		FacesContext context = FacesContext.getCurrentInstance(); 
 		ExternalContext ec = context.getExternalContext(); 
 		HttpSession session = (HttpSession) ec.getSession(true); 
 		
-		sno = (String)session.getAttribute("id");
+		String stu_id = (String)session.getAttribute("stuid");
+		System.out.println("Student_id = " + stu_id);
+		StudentDAO stuDao = DAOFactory.getInstance().createStudentDAO();
+		Student stu = stuDao.getStudentByID(stu_id);
+		setStudent(stu);
+		return "success";
+	}
+	
+	
+	 /**
+	 * 预选修课程列表
+	 * @return
+	 */
+	public DataModel getCourses(){		
+		CourseDAO courseDao = DAOFactory.getInstance().createCourseDAO();
+		CourseDto dto = new CourseDto();
+		List<CourseDto> dtolist = new ArrayList<CourseDto>();
+		dto.convert(courseDao.getCourse(), dtolist);
+		dataModel.setWrappedData(dtolist);
+		return dataModel;
+	}
+	
+	
+	 /**
+	 * 学生更新信息前读取数据
+	 * @return
+	 */
+	public String preModifyStudent(){
+
+		//JSF获取session
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		ExternalContext ec = context.getExternalContext(); 
+		HttpSession session = (HttpSession) ec.getSession(true); 
 		
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		CourseInfoDAO courDao=getCourseinfoDAO();
-		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Selectcourse> sc = selDao.listSelectCourseBySno(sno);
-		int number = sc.size();
-
-		for(int i=0;i<number;i++){
-			Courseinfo cour = courDao.getCourseInfoById(sc.get(i).getId().getCno());
-			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
-			courses.add(cour);
-			crs.add(courplan);
-			grades.add(sc.get(i).getScore());
-		}
+		String stu_id = (String)session.getAttribute("stuid");
+		System.out.println("Student_id = " + stu_id);
+		StudentDAO stuDao = DAOFactory.getInstance().createStudentDAO();
+		Student stu = stuDao.getStudentByID(stu_id);
+		setStudent(stu);
 		return "success";
 	}
 	
-	public List<Integer> getGrades() {
-		return grades;
-	}
-	public void setGrades(List<Integer> grades) {
-		this.grades = grades;
-	}
-	public List<Courseplan> getCrs() {
-		return crs;
-	}
-	public void setCrs(List<Courseplan> crs) {
-		this.crs = crs;
-	}
-	public String DropCourse() {
+	
+	
+	private static final long serialVersionUID = 6563998465524859573L;
 
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		selDao.deleteSelectCourseById(sno, cno);	
-		return "success";
-	}
-	public String DropCourseByID(String cno){
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		selDao.deleteSelectCourseById(sno, cno);
-		return "success";	
-	}
-	public String countCredit(String sno) {
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		setSum(selDao.sumCreditBySno(sno));
-		return "success";
-	}
-	public String getSno() {
-		return sno;
-	}
+	private String id;
+
+	private String name;
+
+	private String password;
+
+	private String jiguan;
+
+	private String department;
+
+	private String sex;
+
+	private Integer mark;
+
+	private String tel;
+
+	private String phone;
+
+	private String email;
+
+	private String student_id;
 	
-	public String getCno() {
-		return cno;
-	}
-	public void setCno(String cno) {
-		this.cno = cno;
-	}
-	public void setSno(String sno) {
-		this.sno = sno;
-	}
+	private Student student;
 	
-	public String getSname() {
-		return sname;
-	}
+	private Course course;
 	
-	public void setSname(String sname) {
-		this.sname = sname;
-	}
-	public String getGender(){
-		if(sgender==0)
-			return "女";
-		else
-			return "锟斤拷";
-	}
-	public Integer getSgender() {
-		return sgender;
-	}
-	
-	public void setSgender(Integer sgender) {
-		this.sgender = sgender;
-	}
-	
-	public Date getSbirthday() {
-		return sbirthday;
-	}
-	
-	public void setSbirthday(Date sbirthday) {
-		this.sbirthday = sbirthday;
-	}
-	
-	public String getSidno() {
-		return sidno;
-	}
-	
-	public void setSidno(String sidno) {
-		this.sidno = sidno;
-	}
-	
-	public String getSdept() {
-		return sdept;
-	}
-	public void setSdept(String sdept) {
-		this.sdept = sdept;
-	}
-	
-	public String getMajor() {
-		return major;
-	}
-	
-	public void setMajor(String major) {
-		this.major = major;
-	}
-	
-	public String getField() {
-		return field;
-	}
-	
-	public void setField(String field) {
-		this.field = field;
-	}
-	
-	public String getGrade() {
-		return grade;
-	}
-	
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-	
-	public String getTutor() {
-		return tutor;
-	}
-	
-	public void setTutor(String tutor) {
-		this.tutor = tutor;
-	}
-	
-	public Date getGraduationDate() {
-		return graduationDate;
-	}
-	
-	public void setGraduationDate(Date graduationDate) {
-		this.graduationDate = graduationDate;
-	}
-	
-	public String getDegree() {
-		return degree;
-	}
-	
-	public void setDegree(String degree) {
-		this.degree = degree;
+	//在更新学生页面使用
+	public Student getStudent() {
+		return student;
 	}
 
-	public List<Student> getStudents() {
-		return students;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public String getStudent_id() {
+		return student_id;
 	}
-	public List<Courseinfo> getCourses() {
-		return courses;
+
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
 	}
-	public void setCourses(List<Courseinfo> courses) {
-		this.courses = courses;
+
+	public String getDepartment() {
+		return department;
 	}
-	public int getSum() {
-		return sum;
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
-	public void setSum(int sum) {
-		this.sum = sum;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getJiguan() {
+		return jiguan;
+	}
+
+	public void setJiguan(String jiguan) {
+		this.jiguan = jiguan;
+	}
+
+	public Integer getMark() {
+		return mark;
+	}
+
+	public void setMark(Integer mark) {
+		this.mark = mark;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }

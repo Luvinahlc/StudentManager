@@ -7,9 +7,9 @@
 	</head>
 	<body>
 	<f:view>
-		<p align="center">所有教师</p>
+		<p align="center">所有教务员</p>
 		<p align=right>
-			<a href="addteacher.faces">新增教师</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="addteacher.faces">新增教务员</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</p>
 		<h:form>
 		<h:dataTable value="#{teacherBean.teachers}" var="teacher" border="1" width="75%">

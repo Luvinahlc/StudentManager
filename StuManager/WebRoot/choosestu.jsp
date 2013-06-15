@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
 <title>挑选您的学生</title> 
 </head> 
-<body bgcolor="#0099FF" text="#FFFFFF" link="#00FF00"> 
+<body> 
 <% 
 String tea_id=(String)session.getAttribute("id"); 
 %> 

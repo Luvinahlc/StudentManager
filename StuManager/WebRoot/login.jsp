@@ -12,6 +12,7 @@
     
 </head>
 
+
 <body>
 <f:view>
 	<h:form>
@@ -32,10 +33,10 @@
 				<tr>					
 					<td height="341" id="Main">						    
 
+					
 						<div id="Login">
 						<font style="font-size: 12px;font-weight:bold;color: #FF0000"></font><br>
-						<form method="post" action="login.do">
-
+						<form method="post" action="login.do" onsubmit="JavaScript: return CheckForm();" style="width: 223px; ">
 							<label>
 								用户
 							</label>
@@ -48,13 +49,10 @@
 							<h:inputSecret id="password" value="#{loginBean.password}" required="true" />
 							<br />
 
+
 							<h:commandButton action="#{loginBean.login}" value="登录" />
 							<br/>		
-							
-							<h:outputText value="#{loginBean.msg}"></h:outputText>
-							<br />
-	
-						</form>
+							</form>
 						</div>						
 						<div id="News">							
 							<ul>

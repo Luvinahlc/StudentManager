@@ -7,27 +7,50 @@
  <file-system NAME="src" location="%workspace.home%/../../src" model-entity="FileSystemFolder"/>
  <file-system NAME="lib" location="%workspace.home%/lib" model-entity="FileSystemFolder"/>
  <file-system NAME="classes" location="%workspace.home%/classes" model-entity="FileSystemFolder"/>
- <file-system NAME="StuManager" location="%eclipse.project%" model-entity="FileSystemFolder"/>
- <file-system NAME="lib-activation.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\activation.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-bean-validator.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\bean-validator.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.annotation.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.annotation.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.ejb.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.ejb.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.enterprise.deploy.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.enterprise.deploy.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.jms.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.jms.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.management.j2ee.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.management.j2ee.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.persistence.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.persistence.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.resource.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.resource.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.security.auth.message.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.security.auth.message.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.security.jacc.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.security.jacc.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-javax.servlet.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\javax.servlet.jar" model-entity="FileSystemJar"/>
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.servlet.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-javax.servlet.jsp.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\javax.servlet.jsp.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-j2ee.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\jboss-j2ee.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-jaxrpc.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\jboss-jaxrpc.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-jsr77.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\jboss-jsr77.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-saaj.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\jboss-saaj.jar" model-entity="FileSystemJar"/>
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.servlet.jsp.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.servlet.jsp.jstl.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.servlet.jsp.jstl.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javax.transaction.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\javax.transaction.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jaxb-api-osgi.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\jaxb-api-osgi.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jsf-api.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\jsf-api.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jsf-impl.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\jsf-impl.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jsr311-api.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\jsr311-api.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jstl-impl.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\jstl-impl.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-mail.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\mail.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-namespace.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\namespace.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-xml-apis.jar"
-  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\1.4\xml-apis.jar" model-entity="FileSystemJar"/>
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\mail.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-webservices-api-osgi.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\webservices-api-osgi.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-weld-osgi-bundle.jar"
+  location="D:\Program Files\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.0.0.me201110301321\data\libraryset\EE_6\weld-osgi-bundle.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-antlr-2.7.5H3.jar"
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\antlr-2.7.5H3.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-asm-attrs.jar"
@@ -72,10 +95,6 @@
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\jdbc2_0-stdext.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-jgroups-2.2.7.jar"
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\jgroups-2.2.7.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jsf-api.jar"
-  location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\jsf-api.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jsf-impl.jar"
-  location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\jsf-impl.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-jstl.jar"
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\jstl.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-jta.jar"
@@ -96,14 +115,49 @@
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\swarmcache-1.0rc2.jar" model-entity="FileSystemJar"/>
  <file-system NAME="lib-xerces-2.6.2.jar"
   location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\xerces-2.6.2.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-cache.jar"
-  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.0\lib\optional\jboss-cache.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-common.jar"
-  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.0\lib\optional\jboss-common.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-jmx.jar"
-  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.0\lib\optional\jboss-jmx.jar" model-entity="FileSystemJar"/>
- <file-system NAME="lib-jboss-system.jar"
-  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.0\lib\optional\jboss-system.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-xml-apis.jar"
+  location="E:\Software Engineering\myworkplace\StuManager\WebRoot\WEB-INF\lib\xml-apis.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-annotations.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-annotations.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-commons-annotations.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-commons-annotations.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-entitymanager.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\hibernate-entitymanager.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-hibernate-validator.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\hibernate-validator.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ejb3-persistence.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\entitymanager\ejb3-persistence.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-cglib-2.2.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\bytecode\cglib\cglib-2.2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-javassist-3.9.0.GA.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\bytecode\javassist\javassist-3.9.0.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-antlr-2.7.6.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.2\lib\antlr-2.7.6.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-commons-collections-3.1.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\commons-collections-3.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jta-1.1.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\jta-1.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-ehcache-1.2.3.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.2\lib\ehcache-1.2.3.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-slf4j-api-1.5.8.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\slf4j-api-1.5.8.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-slf4j-log4j12-1.5.8.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\slf4j-log4j12-1.5.8.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-log4j-1.2.14.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\required\log4j-1.2.14.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-dom4j-1.6.1.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.1\lib\dom4j-1.6.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-c3p0-0.9.1.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\c3p0\c3p0-0.9.1.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jboss-cache-1.4.1.GA.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\jbosscache\jboss-cache-1.4.1.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-jbosscache-core-3.1.0.GA.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\jbosscache2\jbosscache-core-3.1.0.GA.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-swarmcache-1.0RC2.jar"
+  location="D:\Program Files\MyEclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\95\1\.cp\myeclipse-data\3.3\lib\optional\swarmcache\swarmcache-1.0RC2.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-mysql-connector-java-5.0.4-bin.jar"
+  location="E:\Software Engineering\myworkplace\StuManager\mysql-connector-java-5.0.4-bin.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="StuManager" location="%eclipse.project%" model-entity="FileSystemFolder"/>
  <web SERVLET_VERSION="2.4" model-entity="JstWeb" model-path="/web.xml">
   <module URI="/WEB-INF/faces-config.xml" model-entity="WebJSFModule"
    model-path="/faces-config.xml" src="src" web-root="WEB-ROOT"/>

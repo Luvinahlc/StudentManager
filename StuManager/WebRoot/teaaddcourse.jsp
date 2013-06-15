@@ -1,10 +1,10 @@
-<%@page language="java" contentType="text/html; charset=utf-8"%>
+<%@page language="java" contentType="text/html; charset=GBK"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 
 <html>
 	<head>
-		<title>南京大学教务系统</title>
+		<title>�Ͼ���ѧ����ϵͳ</title>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="css/teacherinner.css" rel="stylesheet" type="text/css">  
 
@@ -18,19 +18,19 @@
 
  
 <div id="Logo"><a href="teacher.faces"><img src="image/Logo_Student.jpg" border="0"></a></div>
-<div id="TopLink"><img src="image/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/Icon_Exit.gif"><a href="login.faces">退出</a></div>
-<div id="UserInfo">欢迎您 &nbsp;&nbsp;&nbsp;&nbsp;当前身份：教务员</div>
+<div id="TopLink"><img src="image/Icon_Help.gif"><a href="student/index.do#">����</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/Icon_Exit.gif"><a href="login.faces">�˳�</a></div>
+<div id="UserInfo">��ӭ�� &nbsp;&nbsp;&nbsp;&nbsp;��ǰ���ݣ�����Ա</div>
 		
 <script type="text/javascript" language="javascript" src="js/prototype.js"></script>
 <div id="Nav">
   <ul>
-    <li id="homepage"><a href="teacher.faces">首  页</a></li>
-    <li id="studentinfo"><a href="updatetea.faces">个人信息</a></li>
-     <li id="teachinginfo"><a href="coursemanage.faces">课程管理</a></li>
-    <li id="teachinginfo"><a href="studentmanage.faces">学生管理</a></li>
-    <li id="teachinginfo"><a href="coursescheduling.faces">排课系统</a></li>
-    <li id="studentinfo"><a href="courseselectingresult.faces">选课结果</a></li>
-    <li id="studentinfo"><a href="teascoremanage.faces">成绩管理</a></li>
+    <li id="homepage"><a href="teacher.faces">��  ҳ</a></li>
+    <li id="studentinfo"><a href="updatetea.faces">������Ϣ</a></li>
+     <li id="teachinginfo"><a href="coursemanage.faces">�γ̹���</a></li>
+    <li id="teachinginfo"><a href="studentmanage.faces">ѧ������</a></li>
+    <li id="teachinginfo"><a href="coursescheduling.faces">�ſ�ϵͳ</a></li>
+    <li id="studentinfo"><a href="courseselectingresult.faces">ѡ�ν��</a></li>
+    <li id="studentinfo"><a href="teascoremanage.faces">�ɼ�����</a></li>
    
   </ul>
 </div>
@@ -46,14 +46,14 @@
 		<p>
 		</p>
 		<p align="center">
-			新增课程
+			�����γ�
 		</p>
 		<h:form>
 			<div align="center"></div>
 			<table width="37%" border="1" align="center">
 				<tr>
 					<td>
-						课程号
+						�γ̺�
 					</td>
 					<td>
 						<h:inputText id="id" value="#{courseBean.id}" />
@@ -61,7 +61,7 @@
 				</tr>
 				<tr>
 					<td width="37%">
-						课程名
+						�γ���
 					</td>
 					<td width="63%">
 						<h:inputText id="name" value="#{courseBean.name}" />
@@ -69,7 +69,7 @@
 				</tr>
 				<tr>
 					<td>
-						学分
+						ѧ��
 					</td>
 					<td>
 						<h:selectOneListbox id="mark" size="3" value="#{courseBean.mark}">
@@ -82,35 +82,35 @@
 				</tr>
 				<tr>
 					<td>
-						系别
+						ϵ��
 					</td>
 					<td>
 						<h:selectOneListbox id="department" size="3" value="#{courseBean.dep}">
-							<f:selectItem itemLabel="计算机" itemValue="计算机"/>
-							<f:selectItem itemLabel="机械系" itemValue="机械系"/>
-							<f:selectItem itemLabel="电子系" itemValue="电子系"/>
-							<f:selectItem itemLabel="数学系" itemValue="数学系"/>
+							<f:selectItem itemLabel="�����" itemValue="�����"/>
+							<f:selectItem itemLabel="��еϵ" itemValue="��еϵ"/>
+							<f:selectItem itemLabel="����ϵ" itemValue="����ϵ"/>
+							<f:selectItem itemLabel="��ѧϵ" itemValue="��ѧϵ"/>
 						</h:selectOneListbox>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						预修课
+						Ԥ�޿�
 					</td>
 					<td>
 
 						<h:selectOneListbox id="department" size="3" value="#{courseBean.prepare}">
-							<f:selectItem itemLabel="语文" itemValue="语文"/>
-							<f:selectItem itemLabel="数学" itemValue="数学"/>
-							<f:selectItem itemLabel="英语" itemValue="英语"/>
-							<f:selectItem itemLabel="音乐" itemValue="音乐"/>
+							<f:selectItem itemLabel="����" itemValue="����"/>
+							<f:selectItem itemLabel="��ѧ" itemValue="��ѧ"/>
+							<f:selectItem itemLabel="Ӣ��" itemValue="Ӣ��"/>
+							<f:selectItem itemLabel="����" itemValue="����"/>
 						</h:selectOneListbox>
 
 					</td>
 				</tr>
 			</table>
 			<p align="center">
-				<h:commandButton action="#{courseBean.addCourse}" id="Submit2" value="确定"/>
+				<h:commandButton action="#{courseBean.addCourse}" id="Submit2" value="ȷ��"/>
 			</p>
 			<p>
 				&nbsp;

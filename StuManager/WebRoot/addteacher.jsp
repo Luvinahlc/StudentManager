@@ -19,7 +19,7 @@
 		%>
 		</p>
 		<p align="center">
-			新增教师
+			新增教务员
 		</p>
 		<%--<h:form method="post" action="/MyStuMan/addTeacher.do">
 			--%>
@@ -28,7 +28,7 @@
 				<table width="51%" border="1">
 					<tr>
 						<td width="33%">
-							教师编号
+							教务员编号
 						</td>
 						<td width="67%">
 							<h:inputText id="id" value="#{teacherBean.id}" />
@@ -36,7 +36,7 @@
 					</tr>
 					<tr>
 						<td>
-							教师姓名
+							教务员姓名
 						</td>
 						<td>
 							<h:inputText id="name" value="#{teacherBean.name}" />
@@ -52,12 +52,12 @@
 					</tr>
 					<tr>
 						<td>
-							职称
+							院系
 						</td>
 						<td>
 							<h:selectOneListbox id="title" size="１" value="#{teacherBean.title}">
-								<f:selectItem itemLabel="教授" itemValue="教授"/>
-								<f:selectItem itemLabel="牛逼教授" itemValue="牛逼教授"/>
+								<f:selectItem itemLabel="计算机系" itemValue="计算机系"/>
+								<f:selectItem itemLabel="数学系" itemValue="数学系"/>
 							</h:selectOneListbox>
 						</td>
 					</tr>

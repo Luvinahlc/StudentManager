@@ -9,66 +9,93 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.stuman.dao.hibernate.HibernateUtil;
-import com.stuman.domain.User;
+import com.stuman.domain.Admin;
+import com.stuman.domain.Student;
+import com.stuman.domain.Teacher;
 
 
 public class LoginBean {
 
 	private static final long serialVersionUID = 1L;
 	
-	/**≥ˆ¥ÌÃ· æ–≈œ¢**/
+	/**ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ æÔøΩÔøΩœ¢**/
 	private String msg;
 
 	/** password property */
 	private String password;
+
+	/** sort property */
+	private String sort;
 
 	/** username property */
 	private String username;
 
 	// --------------------------------------------------------- Methods
 	public String login(){
-		msg="";
+		
 		Session s = HibernateUtil.currentSession();
 		
-		//JSFªÒ»°session
+		//JSFÔøΩÔøΩ»°session
 		FacesContext context = FacesContext.getCurrentInstance(); 
 		ExternalContext ec = context.getExternalContext(); 
 		HttpSession session = (HttpSession) ec.getSession(true); 
 		
-		//ªÒµ√œ¬¿≠µƒµ«¬Ω¿‡–Õ
-		username = getUsername();
-		password = getPassword();
+		//ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒµÔøΩ¬ΩÔøΩÔøΩÔøΩÔøΩ
+		String sort = getSort();
+		String username = getUsername();
+		String password = getPassword();
+		int loginSort = Integer.parseInt(sort);
+
+		String[] userlist = new String[2];
+		userlist[0] = username;
+		userlist[1] = password;
+
 		try {
 			HibernateUtil.beginTransaction();
-			int identity = -1;
 			String str = new String();
-			str = "from User user where user.id = '" + username
-					+ "' and user.password ='" + password + "'";
-			System.out.println(str);
-			Query query = s.createQuery(str);
-			if (query.list().size() > 0) {
-				session.setAttribute("id", ((User)query.list().get(0)).getId());
-				identity =  ((User)query.list().get(0)).getIdentity();
-				System.out.println(identity);
-				s.close();
-			} 
-
-			switch (identity) {
-				case 0:
+			switch (loginSort) {
+			case 1:
+				str = " from Student as stu where stu.name=:stuName and stu.password=:stuPassword";
+				Query query = s.createQuery(str);
+				System.out.println(username + "  " + password);
+				query.setString("stuName", username);
+				query.setString("stuPassword", password);
+				if (query.list().size() > 0) {
+					session.setAttribute("stuid", ((Student) query.list().get(0)).getId());
+					s.close();
 					return "studentLoginsuccess";
-				case 1:
-					return "teacherLoginsuccess";
-				case 2:
-					return "adminLoginsuccess";
-				default:
+				} else
 					break;
+			case 2:
+				str = " from Teacher tea where tea.name = '" + username
+						+ "' and tea.password ='" + password + "'";
+				if (s.createQuery(str).list().size() > 0) {
+					session.setAttribute("teaid", ((Teacher) s.createQuery(str)
+							.list().get(0)).getId());
+					s.close();
+					return "teacherLoginsuccess";
+				} else
+					break;
+			case 3:
+				str = " from Admin admin where admin.name = '" + username
+						+ "' and admin.password ='" + password + "'";
+				System.out.println(username + "  " + password);
+				if (s.createQuery(str).list().size() > 0) {
+					session.setAttribute("id", ((Admin) s.createQuery(str)
+							.list().get(0)).getId());
+					s.close();
+					return "adminLoginsuccess";
+				} else
+					break;
+			default:
+				break;
 			}
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
 			s.close();
 		}
-		msg="”√ªß√˚√‹¬Î≤ª∆•≈‰";
+		msg="ÁôªÂΩïÂ§±Ë¥•";
 		return null;
 	}
 
@@ -91,6 +118,24 @@ public class LoginBean {
 		this.password = password;
 	}
 
+	/**
+	 * Returns the sort.
+	 * 
+	 * @return String
+	 */
+	public String getSort() {
+		return sort;
+	}
+
+	/**
+	 * Set the sort.
+	 * 
+	 * @param sort
+	 *            The sort to set
+	 */
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
 
 	/**
 	 * Returns the username.

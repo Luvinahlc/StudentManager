@@ -1,10 +1,6 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
-<jsp:useBean id="AcademicBean" class="com.stuman.web.jsf.bean.AcademicBean" scope="page"/>
-<%	AcademicBean.getAllGrade(); %>
-
-
 <html>
   <head>
     <title>南京大学教务系统</title>
@@ -37,63 +33,6 @@
 	</div>
 	﻿
 
-<html>
-	<head>
-		<base href="teacher.faces">
-		<title>学生信息</title>
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">    
-		<link href="css/table.css" rel="stylesheet" type="text/css">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	</head>
-	
-	<body leftmargin="50" rightmargin="50">
-		<div>
-		<table  width="100%"  height="100%" align="center" >
-			<tr><td height="15"></td></tr>
-			<TR align="center">
-		<TD width="10" >&nbsp;</TD>
-        <TD align="center" valign="top">
-			<table width="95%"  class="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
-				<tr class="TABLE_TH">
-				  <th >年级</th>
-				  <th >人数</th>
-				  <%int listnum=AcademicBean.getGrade().size();
-				  for(int i=0;i<listnum;i++){
-				   	if(i%2 == 0) {%>
-				   	<tr align="left" class="TABLE_TR_01">
-				   	<% }%>
-				   	<%if(i%2 == 1) {%>
-				   	<tr align="left" class="TABLE_TR_02">
-				   	<% }%>
-				   	<%String grade = (String)(AcademicBean.getGrade().get(i)); %>
-				   	<td valign="middle"><%=grade %></td>
-				   	<%AcademicBean.getStudentByGrade(grade); %>
-				   	<td valign="middle"><%=AcademicBean.getStudent().size() %></td>
-				   	
-			   	</tr>	
-				   	
-				   <% }%>	  
-				
-			</table>
-			
-		
-		</table>
-		
-		
-		</div>
-	
-	
-	</body>
-
-
-</html>
-
-
-
-
-
 
 
 <div class="Line"></div>
@@ -101,3 +40,4 @@
 
 
 </html>
+<br>

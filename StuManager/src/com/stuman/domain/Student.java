@@ -1,27 +1,38 @@
 package com.stuman.domain;
 
-import java.util.Date;
-
-/**
- * Student entity. @author MyEclipse Persistence Tools
- */
+import java.util.HashSet;
+import java.util.Set;
 
 public class Student implements java.io.Serializable {
 
 	// Fields
 
-	private String sno;
-	private String sname;
-	private Integer sgender;
-	private Date sbirthday;
-	private String sidno;
-	private String sdept;
-	private String major;
-	private String field;
-	private String grade;
-	private String tutor;
-	private Date graduationDate;
-	private String degree;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5290815199794450572L;
+
+	private String id;
+
+	private String name;
+
+	private String password;
+
+	private String jiguan;
+
+	private String department;
+
+	private String sex;
+
+	private Integer mark;
+
+	private String tel;
+
+	private String phone;
+
+	private String email;
+
+	private Set enrols = new HashSet(0);
 
 	// Constructors
 
@@ -30,118 +41,109 @@ public class Student implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Student(String sname, Integer sgender, Date sbirthday, String sidno,
-			String sdept, String major, String field, String grade,
-			String tutor, Date graduationDate, String degree) {
-		this.sname = sname;
-		this.sgender = sgender;
-		this.sbirthday = sbirthday;
-		this.sidno = sidno;
-		this.sdept = sdept;
-		this.major = major;
-		this.field = field;
-		this.grade = grade;
-		this.tutor = tutor;
-		this.graduationDate = graduationDate;
-		this.degree = degree;
+	public Student(String name, String password, String jiguan,
+			String department, String sex, Integer mark, String tel,
+			String phone, String email, Set enrols) {
+		this.name = name;
+		this.password = password;
+		this.jiguan = jiguan;
+		this.department = department;
+		this.sex = sex;
+		this.mark = mark;
+		this.tel = tel;
+		this.phone = phone;
+		this.email = email;
+		this.enrols = enrols;
 	}
 
 	// Property accessors
 
-	public String getSno() {
-		return this.sno;
+	public String getId() {
+		return this.id;
 	}
 
-	public void setSno(String sno) {
-		this.sno = sno;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getSname() {
-		return this.sname;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Integer getSgender() {
-		return this.sgender;
+	public String getPassword() {
+		return this.password;
 	}
 
-	public void setSgender(Integer sgender) {
-		this.sgender = sgender;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Date getSbirthday() {
-		return this.sbirthday;
+	public String getJiguan() {
+		return this.jiguan;
 	}
 
-	public void setSbirthday(Date sbirthday) {
-		this.sbirthday = sbirthday;
+	public void setJiguan(String jiguan) {
+		this.jiguan = jiguan;
 	}
 
-	public String getSidno() {
-		return this.sidno;
+	public String getDepartment() {
+		return this.department;
 	}
 
-	public void setSidno(String sidno) {
-		this.sidno = sidno;
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
-	public String getSdept() {
-		return this.sdept;
+	public String getSex() {
+		return this.sex;
 	}
 
-	public void setSdept(String sdept) {
-		this.sdept = sdept;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
-	public String getMajor() {
-		return this.major;
+	public Integer getMark() {
+		return this.mark;
 	}
 
-	public void setMajor(String major) {
-		this.major = major;
+	public void setMark(Integer mark) {
+		this.mark = mark;
 	}
 
-	public String getField() {
-		return this.field;
+	public String getTel() {
+		return this.tel;
 	}
 
-	public void setField(String field) {
-		this.field = field;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	public String getGrade() {
-		return this.grade;
+	public String getPhone() {
+		return this.phone;
 	}
 
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getTutor() {
-		return this.tutor;
+	public String getEmail() {
+		return this.email;
 	}
 
-	public void setTutor(String tutor) {
-		this.tutor = tutor;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Date getGraduationDate() {
-		return this.graduationDate;
+	public Set getEnrols() {
+		return this.enrols;
 	}
 
-	public void setGraduationDate(Date graduationDate) {
-		this.graduationDate = graduationDate;
-	}
-
-	public String getDegree() {
-		return this.degree;
-	}
-
-	public void setDegree(String degree) {
-		this.degree = degree;
+	public void setEnrols(Set enrols) {
+		this.enrols = enrols;
 	}
 
 }
