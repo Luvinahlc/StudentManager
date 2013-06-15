@@ -18,9 +18,6 @@
     <li id="studentinfo"><a href="stu_information.faces">个人信息</a></li>
     <li id="teachinginfo"><a href="stu_gradelook.faces">成绩查看</a></li>
     <li id="teachinginfo"><a href="stu_courseplan.faces">学期选课</a></li>
-    <li id="studentinfo"><a href="stu_applicationsystem.faces">申报系统</a></li>
-    <li id="teachinginfo"><a href="stu_notice.faces">通知查看</a></li>
-    <li id="teachinginfo"><a href="stu_courseassess.faces">课程评估</a></li>
      	
   </ul>
 </div>
@@ -31,9 +28,7 @@
 	    <li id="studentinfo"><a href="stu_information.faces"><img src="images/personal.png"><br />个人信息</a></li>
 	    <li id="teachinginfo"><a href="stu_gradelook.faces"><img src="images/achievement.png"><br />成绩查看</a></li>
 	    <li id="electiveinfo"><a href="stu_courseplan.faces"><img src="images/elective.png"><br />选课安排</a></li>
-	    <li id="signupinfo"><a href="stu_applicationsystem.faces"><img src="images/executeplan.png"><br />申报系统</a></li>
-		<li id="dissertation"><a href="stu_notice.faces"><img src="images/dissertation.png"><br />通知查看</a></li>
-		<li id="coureval"><a href="stu_courseassess.faces"><img src="images/stueval.png"><br />课程评估</a></li>
+
 	</ul>
 </div>
 <div class="Line"></div>
