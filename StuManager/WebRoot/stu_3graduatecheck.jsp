@@ -1,14 +1,13 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
 <jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
-<%StudentBean.setSno((String)(session.getAttribute("id")));
-StudentBean.CheckStuInfo(); %>
+<%StudentBean.CheckStuInfo(); %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 
 <html>
   <head>
     <title>南京大学教务系统</title>
-    <base href="login.jsp">
+    <base href="http://desktop.nju.edu.cn:8080/jiaowu/">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="css/inner.css" rel="stylesheet" type="text/css">  
   </head>
@@ -17,23 +16,26 @@ StudentBean.CheckStuInfo(); %>
   <![endif]--> 
   <body >
 	<div id="Header">
-<div id="Logo"><a href="student/index.do#"><img src="images/Logo_Student.jpg" border="0"></a></div>
-<div id="TopLink"><img src="image/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/Icon_Exit.gif"><a href="login.faces">退出</a></div>
-<div id="UserInfo">~~欢迎您~~</div>
+<div id="Logo"><a href="student/index.do#"><img src="image/student/Logo_Student.jpg" border="0"></a></div>
+<div id="TopLink"><img src="image/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/Icon_Exit.gif"><a href="exit.do?type=student">退出</a></div>
+<div id="UserInfo">欢迎您：顾玲玲&nbsp;&nbsp;&nbsp;&nbsp;当前身份：学生</div>
 <script type="text/javascript" language="javascript" src="js/prototype.js"></script>
 <div id="Nav">
   <ul>
     <li id="homepage"><a href="student/index.do">首  页</a></li>
-    <li id="studentinfo"><a href="stu_information.faces">个人信息</a></li>
-    <li id="teachinginfo"><a href="stu_gradelook.faces">成绩查看</a></li>
-    <li id="teachinginfo"><a href="stu_courseplan.faces">学期选课</a></li>
-
+    <li id="studentinfo"><a href="student/studentinfo/index.do">个人信息</a></li>
+    <li id="teachinginfo"><a href="student/teachinginfo/index.do">教学信息</a></li>
+    <li id="teachinginfo"><a href="student/elective/index.do">学期选课</a></li>
+    <li id="teachinginfo"><a href="student/signup/index.do">报名系统</a></li>
+    <li id="studentinfo"><a href="student/dissertation/index.do">论文信息</a></li>
+    <li id="studentinfo"><a href="student/evalcourse/list.do">课程评估</a></li>
+    <li id="studentinfo"><a href="student/exchange/index.do">校际交换</a></li>    	
   </ul>
 </div>
 	</div>
 <html>
   <head>
-    <base href="login.jsp">
+    <base href="http://desktop.nju.edu.cn:8080/jiaowu/">
     <title>学生信息</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -84,7 +86,7 @@ StudentBean.CheckStuInfo(); %>
 			<table width="100%" CLASS="TABLE_BODY" bordercolor="#777777" border="1" style="border-color:#777777;border-collapse:collapse">
 				<tr><th colspan="7"  class="TABLE_TH" >毕业信息</th></TR>
 						<tr height="27">
-							<td rowspan="5" align="left" width="100"><img src="images/common.jpg" width="100" height="135"/></td>
+							<td rowspan="5" align="left" width="100"><img src="/jiaowu/Data/Photos/common.jpg" width="100" height="135"/></td>
 							<td  class="TABLE_TD_02">学号</td>
 							<td class="TABLE_TD_01"><%=StudentBean.getSno()%></td>
 							<td class="TABLE_TD_02">姓名</td>

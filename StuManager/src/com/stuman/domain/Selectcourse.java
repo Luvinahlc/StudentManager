@@ -42,8 +42,6 @@ public class Selectcourse implements java.io.Serializable {
 	}
 
 	public Integer getScore() {
-		if(score==null)
-			return 0;
 		return this.score;
 	}
 

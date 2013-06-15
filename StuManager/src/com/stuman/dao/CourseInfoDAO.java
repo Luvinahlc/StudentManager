@@ -8,7 +8,6 @@ public interface CourseInfoDAO {
 	
 	List<Courseinfo> listCourseInfoByDept(String deptName);
 	
-	
 	Courseinfo getCourseInfoById(String id);
 	
 	boolean addCourseInfo(Courseinfo crInfo);
@@ -16,6 +15,4 @@ public interface CourseInfoDAO {
 	boolean deleteCourseInfoById(String id);
 	
 	boolean updateCourseInfo(Courseinfo crInfo);
-	
-	boolean isCourseExist(String cno);
 }
