@@ -8,7 +8,6 @@ public interface CourseInfoDAO {
 	
 	List<Courseinfo> listCourseInfoByDept(String deptName);
 	
-	
 	Courseinfo getCourseInfoById(String id);
 	
 	boolean addCourseInfo(Courseinfo crInfo);

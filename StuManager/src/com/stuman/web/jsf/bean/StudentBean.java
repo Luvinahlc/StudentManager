@@ -16,8 +16,6 @@ import com.stuman.dao.StudentDAO;
 import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Courseplan;
 import com.stuman.domain.Selectcourse;
-import com.stuman.domain.SelectcourseId;
-import com.stuman.domain.Selectcoursetime;
 import com.stuman.domain.Student;
 
 public class StudentBean {
@@ -52,11 +50,22 @@ public class StudentBean {
 	
 	private List<Courseplan> crs = new ArrayList<Courseplan>();
 	
-	private List<Integer> grades = new ArrayList<Integer>();
-	
-	
 	private String cno;
-	
+
+/*	public StudentBean() throws Exception {
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		ExternalContext ec = context.getExternalContext(); 
+		HttpSession session = (HttpSession) ec.getSession(true); 
+		
+		String stu_id = (String)session.getAttribute("id");
+		
+		StudentDAO stuDao = getStudentDAO();
+		Student stu = stuDao.getStudentByID(stu_id);
+		
+		BeanUtils.copyProperties(this, stu);
+		
+		System.out.println("id:"+getSno());
+	}*/
 	public StudentDAO getStudentDAO() {
 		return DAOFactory.getInstance().createStudentDAOImp();
 	}
@@ -69,32 +78,18 @@ public class StudentBean {
 	public CoursePlanDAO getCourseplanDAO() {
 		return DAOFactory.getInstance().createCoursePlanDAOImp();
 	}
-	public boolean getSelectcourseTime(){
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		Selectcoursetime time=selDao.getSelectTime();
-		if (time == null)
-			System.out.println("time is null!");
-		Date now=new Date();
-		System.out.println("today date:"+now);
-		if(time==null)
-			return false;
-		if((time.getId().getStartTime().compareTo(now)<=0)&&(time.getId().getEndTime().compareTo(now)>=0))
-			return true;
-		return false;
-	}
 	public String CheckStuInfo() throws Exception {
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		ExternalContext ec = context.getExternalContext(); 
+		HttpSession session = (HttpSession) ec.getSession(true); 
+		
+		String stu_id = (String)session.getAttribute("id");
+		
 		StudentDAO stuDao = getStudentDAO();
-		Student stu = stuDao.getStudentByID(sno);
+		Student stu = stuDao.getStudentByID(stu_id);
 		
 		BeanUtils.copyProperties(this, stu);
-		sname=stu.getSname();
-		sbirthday=stu.getSbirthday();
-		sdept=stu.getSdept();
-		field=stu.getField();
-		major=stu.getMajor();
-		tutor=stu.getTutor();
-		graduationDate=stu.getGraduationDate();
-		degree=stu.getDegree();
+		
 		System.out.println("id:"+getSno());
 		
 		return "success";	
@@ -120,51 +115,8 @@ public class StudentBean {
 		students = stuDao.listStudent();
 		return "success";
 	}
-	public String ChooseCourse(String cno,String teacher){
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		SelectcourseId courseid=new SelectcourseId(sno,cno); 
-		Selectcourse sltCourse = new Selectcourse(courseid,teacher);
 	
-		selDao.addSelectCourse(sltCourse);
-		return "success";
-	}
 	public String GetSelectedCourses() {
-		
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		CourseInfoDAO courDao=getCourseinfoDAO();
-		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Selectcourse> sc=selDao.listSelectCourseBySno(sno);
-		int number=sc.size();
-
-		for(int i=0;i<number;i++){
-			Courseinfo cour=courDao.getCourseInfoById(sc.get(i).getId().getCno());
-			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
-			courses.add(cour);
-			crs.add(courplan);
-		}
-		return "success";
-	}
-	
-	public StudentBean() {
-	}
-	public String GetCoursesToBeChoosed() {
-		CourseInfoDAO courDao=getCourseinfoDAO();
-		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Courseinfo> sc=new ArrayList<Courseinfo>();
-		sc=courDao.listCourseInfo();
-		SelectCourseDAO selDao=getSelectCourseDAO();
-		for(int i=0;i<sc.size();i++){
-			if(!selDao.courseChoosed(sno, sc.get(i).getCno())){
-				courses.add(sc.get(i));
-				Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getCno());
-				crs.add(courplan);
-			}
-		}
-		
-		return "success";
-	}
-	
-	public String getCourseGrades() {
 		FacesContext context = FacesContext.getCurrentInstance(); 
 		ExternalContext ec = context.getExternalContext(); 
 		HttpSession session = (HttpSession) ec.getSession(true); 
@@ -174,25 +126,18 @@ public class StudentBean {
 		SelectCourseDAO selDao=getSelectCourseDAO();
 		CourseInfoDAO courDao=getCourseinfoDAO();
 		CoursePlanDAO courplanDao = getCourseplanDAO();
-		List<Selectcourse> sc = selDao.listSelectCourseBySno(sno);
-		int number = sc.size();
-
+		List<Selectcourse> sc=selDao.listSelectCourseBySno(sno);
+		int number=sc.size();
+		System.out.println(sc.size());
 		for(int i=0;i<number;i++){
-			Courseinfo cour = courDao.getCourseInfoById(sc.get(i).getId().getCno());
+			Courseinfo cour=courDao.getCourseInfoById(sc.get(i).getId().getCno());
 			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
 			courses.add(cour);
 			crs.add(courplan);
-			grades.add(sc.get(i).getScore());
 		}
 		return "success";
 	}
 	
-	public List<Integer> getGrades() {
-		return grades;
-	}
-	public void setGrades(List<Integer> grades) {
-		this.grades = grades;
-	}
 	public List<Courseplan> getCrs() {
 		return crs;
 	}
@@ -205,11 +150,11 @@ public class StudentBean {
 		selDao.deleteSelectCourseById(sno, cno);	
 		return "success";
 	}
-	public String DropCourseByID(String cno){
+	/*public String DropCourseByID(String cno){
 		SelectCourseDAO selDao=getSelectCourseDAO();
 		selDao.deleteSelectCourseById(sno, cno);
 		return "success";	
-	}
+	}*/
 	public String getSno() {
 		return sno;
 	}
@@ -312,13 +257,7 @@ public class StudentBean {
 		return degree;
 	}
 	
-<<<<<<< HEAD
-	public void setDegree(String degree) throws Exception {
-
-		degree =new String(degree .getBytes("ISO-8859-1"),"utf8");
-=======
 	public void setDegree(String degree) {
->>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 		this.degree = degree;
 	}
 

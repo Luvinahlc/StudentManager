@@ -2,8 +2,8 @@ package com.stuman.dao;
 
 import java.util.List;
 
+import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Selectcourse;
-import com.stuman.domain.Selectcoursetime;
 
 public interface SelectCourseDAO {
 
@@ -18,8 +18,4 @@ public interface SelectCourseDAO {
 	boolean deleteSelectCourseById(String sno,String cno);//right
 	
 	boolean updateSelectCourse(Selectcourse sltCourse);//right
-	
-	boolean courseChoosed(String sno, String cno);
-	
-	Selectcoursetime getSelectTime();
 }

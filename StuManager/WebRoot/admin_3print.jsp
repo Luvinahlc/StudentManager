@@ -22,9 +22,18 @@
     <li id="teachinginfo"><a href="admin_graduateinfo.faces">毕业信息管理</a></li>
   </ul>
 </div>
-
 	</div>
-
+	<!-- 
+<div id="Function">
+    <ul>
+	  <li><a href="student/studentinfo/studentinfo.do?method=searchAllList"><img src="images/personal.png"><br />学籍表的导入与导出</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/achievement.png"><br />学籍信息的查询与统计</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective.png"><br />查看与修改学籍信息</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective_public_renew.png"><br />学分统计</a></li>
+	</ul>
+</div>
+<div class="Line"></div>
+ -->
   </body>
 </html>
 

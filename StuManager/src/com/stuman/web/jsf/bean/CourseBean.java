@@ -1,5 +1,7 @@
 package com.stuman.web.jsf.bean;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.stuman.dao.CourseInfoDAO;
