@@ -1,6 +1,5 @@
 package com.stuman.web.jsf.bean;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import com.stuman.dao.AcademicDeanDAO;
 import com.stuman.dao.CourseInfoDAO;
 import com.stuman.dao.CoursePlanDAO;
 import com.stuman.dao.DAOFactory;
+<<<<<<< HEAD
 import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
 import com.stuman.domain.Academicdean;
@@ -18,6 +18,10 @@ import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Courseplan;
 import com.stuman.domain.Selectcourse;
 import com.stuman.domain.Student;
+=======
+import com.stuman.domain.Academicdean;
+import com.stuman.domain.Applyinfo;
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 import com.stuman.domain.Ungraduate;
 
 public class AcademicBean {
@@ -38,10 +42,9 @@ public class AcademicBean {
 	
 	private List<Ungraduate> ungraduate;
 	
-	private List<String> grade;
-	
 	private Ungraduate ungrad;
 	
+<<<<<<< HEAD
 	private String msg;
 	
 	private List<Student> stus = new ArrayList<Student>();
@@ -120,13 +123,14 @@ public class AcademicBean {
 		return false;
 	}
 
+=======
+	public AcademicDeanDAO getAcademicDeanDAO() {
+		return DAOFactory.getInstance().createAcademicDeanDAOImp();
+	}
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 	public boolean getApplyinformation(){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
-		StudentDAO stuDao = getStudentDAO();
 		applyinfo=acaDao.getApplyinfo();
-		for(int i=0;i<applyinfo.size();i++){
-			students.add((Student)stuDao.getStudentByID(applyinfo.get(i).getId().getSno()));
-		}
 		return true;
 	}
 	public boolean getApplyinfoBySno(String sno){
@@ -136,11 +140,7 @@ public class AcademicBean {
 	}
 	public boolean getUngraduateInformation(){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
-		StudentDAO stuDao = getStudentDAO();
 		ungraduate=acaDao.getUngraduateinfo();
-		for(int i=0;i<ungraduate.size();i++){
-			students.add((Student)stuDao.getStudentByID(ungraduate.get(i).getSno()));
-		}
 		return true;
 	}
 	public List<Applyinfo> getApplyinfo() {
@@ -207,14 +207,6 @@ public class AcademicBean {
 	public Date getAbirthday() {
 		return abirthday;
 	}
-	public List<String> getGrade() {
-		return grade;
-	}
-
-	public void setGrade(List<String> grade) {
-		this.grade = grade;
-	}
-
 	public void setAbirthday(Date abirthday) {
 		this.abirthday = abirthday;
 	}
@@ -242,6 +234,7 @@ public class AcademicBean {
 	public void setUngraduate(List<Ungraduate> ungraduate) {
 		this.ungraduate = ungraduate;
 	}
+<<<<<<< HEAD
 	public List<Student> getStudents() {
 		return students;
 	}
@@ -405,5 +398,7 @@ public class AcademicBean {
 			return true;
 		return false;
 	}
+=======
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 	
 }

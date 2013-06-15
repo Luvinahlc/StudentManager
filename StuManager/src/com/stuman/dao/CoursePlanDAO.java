@@ -15,6 +15,4 @@ public interface CoursePlanDAO {
 	boolean deleteCoursePlanById(String id);//right
 	
 	boolean updateCoursePlan(Courseplan crPlan);//right
-	
-	boolean isCourseExist(String cno);
 }

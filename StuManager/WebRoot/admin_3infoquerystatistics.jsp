@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
-<jsp:useBean id="StudentBean" class="com.stuman.web.jsf.bean.StudentBean" scope="page"/>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<<<<<<< HEAD
 <%  
 	String str=request.getParameter("submit");
 	if(str!=null)
@@ -29,14 +29,15 @@
 <%StudentBean.listdepname(); %>
 
 <html>
+=======
+<html >
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
   <head>
     <title>南京大学教务系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 <link href="css/inner.css" rel="stylesheet" type="text/css"> 
-	 <link href="css/table.css" rel="stylesheet" type="text/css">
   </head>
-  
-  <body>
+  <body >
 	<div id="Header">
 <div id="Logo"><a href="admin.faces"><img src="images/Logo_Student.jpg" border="0"></a></div>
 <div id="TopLink"><img src="images/Icon_Help.gif"><a href="student/index.do#">帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Icon_Exit.gif"><a href="login.faces">退出</a></div>
@@ -52,6 +53,7 @@
   </ul>
 </div>
 	</div>
+<<<<<<< HEAD
 
 <div align="center">
 学籍信息查询
@@ -128,24 +130,19 @@
 					<input type="submit" name="submit" value="统计">
 					
 		</form>
+=======
+	<!-- 
+<div id="Function">
+    <ul>
+	  <li><a href="student/studentinfo/studentinfo.do?method=searchAllList"><img src="images/personal.png"><br />学籍表的导入与导出</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/achievement.png"><br />学籍信息的查询与统计</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective.png"><br />查看与修改学籍信息</a></li>
+	  <li><a href="student/studentinfo/achievementinfo.do?method=searchTermList"><img src="images/elective_public_renew.png"><br />学分统计</a></li>
+	</ul>
+>>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 </div>
-<TD  >
-	    	<table width="70%"  class="TABLE_BODY">
-				<tr class="TABLE_TH">
-				<th align="center">院系</th>
-				  <th align="center">学生人数</th>
-					<tr class="TABLE_TR_02">				    					    
-						<td align="center" width="200">
-						<%=StudentBean.getdptname()%>
-						</td>			    					    
-						<td align="center" width="200">
-						<%=StudentBean.getStuNum() %>
-						</td>
-
-					</tr>
-			</table>				
-		</TD>
-	 </div>
+<div class="Line"></div>
+ -->
   </body>
 </html>
 

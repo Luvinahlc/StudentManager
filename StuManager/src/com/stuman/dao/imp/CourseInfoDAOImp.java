@@ -109,26 +109,10 @@ public class CourseInfoDAOImp implements CourseInfoDAO{
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
 			s.saveOrUpdate(crInfo);
+			System.out.println("add Course cno =" + crInfo.getCno());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;
-		} catch (HibernateException e) {
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			log.fatal(e);
-		}
-		return false;
-	}
-
-	public boolean isCourseExist(String cno) {
-		try {
-			Session s = HibernateUtil.currentSession();
-			HibernateUtil.beginTransaction();
-			List<Courseinfo> results = s.createQuery("from Courseinfo as courinfo where courinfo.cno =:id").setString("id", cno).list();
-			HibernateUtil.commitTransaction();
-			HibernateUtil.closeSession();
-			if((results!=null)&&(results.size()>0))
-				return true;
 		} catch (HibernateException e) {
 			log.fatal(e);
 		}

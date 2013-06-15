@@ -19,14 +19,14 @@
     <li id="studentinfo"><a href="admin_stustatus.faces">学籍信息</a></li>
     <li id="teachinginfo"><a href="admin_grademanage.faces">成绩管理</a></li>
     <li id="teachinginfo"><a href="admin_courseplan.faces">选课安排</a></li>
+    <li id="teachinginfo"><a href="admin_graduateinfo.faces">毕业信息管理</a></li>
   </ul>
 </div>
 	</div>
 <div id="Function">
     <ul>
 	  <li><a href="admin_3choosecoursetime.faces"><img src="images/elective_speciality.png"><br />设置选课起止时间</a></li>
-	  <li><a href="admin_3addcourse.faces"><img src="images/elective_public.png"><br />公共课的添加</a></li>
-	  <li><a href="admin_3plancourse.faces"><img src="images/recondition.png"><br />公共课的排课</a></li>
+	  <li><a href="admin_3addcourse.faces"><img src="images/elective_public.png"><br />公共课的添加与排课</a></li>
 	  <li><a href="admin_3coursecondition.faces"><img src="images/elective.png"><br />查看选课情况</a></li>
 	  <li><a href="admin_3addanddrop.faces"><img src="images/password.png"><br />增选与退选</a></li>
 	</ul>

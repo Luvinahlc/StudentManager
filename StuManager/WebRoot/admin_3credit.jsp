@@ -7,10 +7,10 @@
 	String sno=request.getParameter("sno");
 	SelectCourseBean.setSno(sno);
 	System.out.println(SelectCourseBean.getSno());
-	if(sno==null)SelectCourseBean.setMsg("");
+	if(sno==null)SelectCourseBean.setmsg("");
 	if(sno!=null){
 	    
-		if(SelectCourseBean.checkstuExist()==false)SelectCourseBean.setMsg("该学生学号不存在");
+		if(SelectCourseBean.checkstuExist()==false)SelectCourseBean.setmsg("该学生学号不存在");
 		System.out.println(sno);
 		request.removeAttribute("sno");
 	} %>
@@ -35,6 +35,7 @@
     <li id="studentinfo"><a href="admin_stustatus.faces">学籍信息</a></li>
     <li id="teachinginfo"><a href="admin_grademanage.faces">成绩管理</a></li>
     <li id="teachinginfo"><a href="admin_courseplan.faces">选课安排</a></li>
+    <li id="teachinginfo"><a href="admin_graduateinfo.faces">毕业信息管理</a></li>
   </ul>
 </div>
 	</div>
@@ -47,7 +48,7 @@
 						<input type="submit" value="查询">
 					
 							<br/>
-						<label style="color :#FF0000"><%=SelectCourseBean.getMsg()%></label>
+						<label style="color :#FF0000"><%=SelectCourseBean.getmsg()%></label>
 							<br />	
 						</form>
 	
@@ -58,13 +59,13 @@
 				<th align="center">姓名</th>
 				  <th align="center">学分总数</th>
 					<tr class="TABLE_TR_02">				    					    
-						<td width="200" align="center">
+						<td align="center">
 						<%=SelectCourseBean.getsno()%>
 						</td>			
-						<td align="center"  width="150" >
+						<td align="center">
 						<%=SelectCourseBean.getsname()%>
 						</td>		    					    
-						<td align="center"  width="150">
+						<td align="center">
 						<%=SelectCourseBean.getSumCredit()%>
 						</td>
 

@@ -47,13 +47,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	// Property accessors
-	
-	public String getGender(){
-		if(sgender==0)
-			return "Å®";
-		else 
-			return "ÄÐ";
-	}
+
 	public String getSno() {
 		return this.sno;
 	}
