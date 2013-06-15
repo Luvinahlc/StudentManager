@@ -57,11 +57,12 @@ public class CoursePlanDAOImp implements CoursePlanDAO {
 			Session s = HibernateUtil.currentSession();
 			HibernateUtil.beginTransaction();
 			s.saveOrUpdate(crPlan);
-			System.out.println("add Courseplan cno =" + crPlan.getCno());
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;
 		} catch (HibernateException e) {
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
 			log.fatal(e);
 		}
 		return false;
@@ -92,6 +93,29 @@ public class CoursePlanDAOImp implements CoursePlanDAO {
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
+	}
+
+
+	public boolean isCourseExist(String cno) {
+		try {
+			// 获得Session
+			Session s = HibernateUtil.currentSession();
+			// 开始事务
+			HibernateUtil.beginTransaction();
+			// 执行操作
+			List<Courseplan> results =s.createQuery("from Courseplan cour where cour.cno=:id").setString("id", cno).list();
+			
+			// 提交事务
+			HibernateUtil.commitTransaction();
+			// 关闭Session
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return true;
+			}
 		} catch (HibernateException e) {
 			log.fatal(e);
 		}

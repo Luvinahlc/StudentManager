@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.hibernate.HibernateUtil;
 import com.stuman.domain.Courseinfo;
+import com.stuman.domain.Scoreentertime;
 import com.stuman.domain.Selectcourse;
 import com.stuman.domain.Selectcoursetime;
 
@@ -163,5 +164,84 @@ public class SelectCourseDAOImp implements SelectCourseDAO {
 			log.fatal(e);
 		}
 		return null;
+	}
+
+	public Selectcourse getSelectedCourseById(String sno, String cno) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Selectcourse cour = (Selectcourse) s.createQuery("from Selectcourse as cour where cour.id.cno=:CourNo"+" and cour.id.sno=:StuNo").setString("CourNo", cno).setString("StuNo", sno).uniqueResult();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (cour != null ) {
+				return cour;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
+	public List<Selectcourse> listSelectCourse() {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<Selectcourse> results = s.createQuery("from Selectcourse").list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
+	public boolean setSelectTime(Selectcoursetime time) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Selectcoursetime t=(Selectcoursetime)s.createQuery("from Selectcoursetime").list().get(0);
+			s.delete(t);
+			s.saveOrUpdate(time);
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			return true;
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
+	}
+
+	public boolean isSelectExist(String sno, String cno) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Selectcourse cour = (Selectcourse) s.createQuery("from Selectcourse as cour where cour.id.cno=:CourNo"+" and cour.id.sno=:StuNo").setString("CourNo", cno).setString("StuNo", sno).uniqueResult();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (cour != null ) {
+				return true;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
+	}
+	public boolean setScoreentertime(Scoreentertime time) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			Scoreentertime t=(Scoreentertime)s.createQuery("from Scoreentertime").list().get(0);
+			s.delete(t);
+			s.saveOrUpdate(time);
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			return true;
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
 	}
 }

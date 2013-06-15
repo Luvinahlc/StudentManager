@@ -19,7 +19,7 @@
     <li id="studentinfo"><a href="admin_stustatus.faces">学籍信息</a></li>
     <li id="teachinginfo"><a href="admin_grademanage.faces">成绩管理</a></li>
     <li id="teachinginfo"><a href="admin_courseplan.faces">选课安排</a></li>
-    <li id="teachinginfo"><a href="admin_graduateinfo.faces">毕业信息管理</a></li>
+
      	
   </ul>
 </div>
@@ -30,10 +30,6 @@
 	    <li id="studentinfo"><a href="admin_stustatus.faces"><img src="images/personal.png"><br />学籍信息</a></li>
 	    <li id="teachinginfo"><a href="admin_grademanage.faces"><img src="images/achievement.png"><br />成绩管理</a></li>
 	    <li id="electiveinfo"><a href="admin_courseplan.faces"><img src="images/elective.png"><br />选课安排</a></li>
-	    <li id="signupinfo"><a href="admin_applicationsystem.faces"><img src="images/executeplan.png"><br />申报系统</a></li>
-		<li id="dissertation"><a href="admin_message.faces"><img src="images/dissertation.png"><br />通知设置</a></li>
-		<li id="coureval"><a href="admin_graduateinfo.faces"><img src="images/stueval.png"><br />毕业信息管理</a></li>
-		<li id="coureval"><a href="admin_ticket.faces"><img src="images/current_term_course.png"><br />票务管理</a></li>
 	</ul>
 </div>
 <div class="Line"></div>

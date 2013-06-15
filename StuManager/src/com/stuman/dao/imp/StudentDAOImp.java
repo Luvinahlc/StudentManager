@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.stuman.dao.StudentDAO;
@@ -113,6 +114,64 @@ public class StudentDAOImp implements StudentDAO {
 			log.fatal(e);
 		}		
 		return false;
+	}
+
+	public List<Student> getStudentByGrade(String grade) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<Student> results = s.createQuery("from Student as stu where stu.grade=:sgrade").setString("sgrade",grade).list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
+	public boolean isStuExist(String sno) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			boolean isExsit = false;
+			String str = new String();
+			str = "from Student stu where stu.sno = '" +sno
+					+ "'";
+			Query query = s.createQuery(str);
+			if (query.list().size() > 0) {
+				isExsit=true;
+			} 
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if(isExsit==true)
+				return true;
+			else
+				return false;
+		} catch (HibernateException e) {
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			e.printStackTrace();
+		} 
+		return false;
+	}
+
+	public List<String> getStudentGrade() {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<String> results = s.createQuery("select distinct stu.grade from Student as stu").list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
 	}
 
 }

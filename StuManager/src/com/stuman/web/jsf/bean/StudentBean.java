@@ -1,5 +1,6 @@
 package com.stuman.web.jsf.bean;
 
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 import javax.faces.context.ExternalContext;
@@ -7,12 +8,14 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.hibernate.Session;
 
 import com.stuman.dao.CourseInfoDAO;
 import com.stuman.dao.CoursePlanDAO;
 import com.stuman.dao.DAOFactory;
 import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
+import com.stuman.dao.hibernate.HibernateUtil;
 import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Courseplan;
 import com.stuman.domain.Selectcourse;
@@ -54,8 +57,11 @@ public class StudentBean {
 	
 	private List<Integer> grades = new ArrayList<Integer>();
 	
+	private String msg;
 	
 	private String cno;
+
+	private int sum;
 	
 	public StudentDAO getStudentDAO() {
 		return DAOFactory.getInstance().createStudentDAOImp();
@@ -100,18 +106,19 @@ public class StudentBean {
 		return "success";	
 	}
 	
-	public String modifyStuInfo() throws Exception {
+	public boolean modifyStuInfo() throws Exception {
 		
 		StudentDAO stuDao = getStudentDAO();
-		Student stu=new Student();
+		Student stu=new Student(sname,sgender,sbirthday,sidno,sdept, major, field, grade,tutor,graduationDate,degree);
+		stu.setSno(sno);
 		
-		BeanUtils.copyProperties(stu, this);
+		//BeanUtils.copyProperties(stu, this);
 		
 		if(stuDao.updateStudent(stu)){
-			return "success";
+			return true;
 		}	
 		
-		return null;
+		return false;
 	}
 	
 	public String listStudent() {
@@ -139,14 +146,14 @@ public class StudentBean {
 		for(int i=0;i<number;i++){
 			Courseinfo cour=courDao.getCourseInfoById(sc.get(i).getId().getCno());
 			Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getId().getCno());
-			courses.add(cour);
-			crs.add(courplan);
+			if(courplan!=null){
+				courses.add(cour);
+				crs.add(courplan);
+			}
 		}
 		return "success";
 	}
 	
-	public StudentBean() {
-	}
 	public String GetCoursesToBeChoosed() {
 		CourseInfoDAO courDao=getCourseinfoDAO();
 		CoursePlanDAO courplanDao = getCourseplanDAO();
@@ -155,9 +162,12 @@ public class StudentBean {
 		SelectCourseDAO selDao=getSelectCourseDAO();
 		for(int i=0;i<sc.size();i++){
 			if(!selDao.courseChoosed(sno, sc.get(i).getCno())){
-				courses.add(sc.get(i));
+				
 				Courseplan courplan = courplanDao.getCoursePlanById(sc.get(i).getCno());
-				crs.add(courplan);
+				if(courplan!=null){
+					courses.add(sc.get(i));
+					crs.add(courplan);
+				}
 			}
 		}
 		
@@ -210,6 +220,11 @@ public class StudentBean {
 		selDao.deleteSelectCourseById(sno, cno);
 		return "success";	
 	}
+	public String countCredit(String sno) {
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		setSum(selDao.sumCreditBySno(sno));
+		return "success";
+	}
 	public String getSno() {
 		return sno;
 	}
@@ -228,10 +243,14 @@ public class StudentBean {
 		return sname;
 	}
 	
-	public void setSname(String sname) {
+	public void setSname(String sname) throws Exception{
+		sname=new String(sname.getBytes("ISO-8859-1"),"utf8");
 		this.sname = sname;
 	}
 	public String getGender(){
+		if(sgender==null){
+			return "";
+		}
 		if(sgender==0)
 			return "女";
 		else
@@ -264,15 +283,17 @@ public class StudentBean {
 	public String getSdept() {
 		return sdept;
 	}
-	public void setSdept(String sdept) {
-		this.sdept = sdept;
+	public void setSdept(String sdept) throws Exception {
+		sdept=new String(sdept.getBytes("ISO-8859-1"),"utf8");
+	this.sdept = sdept;
 	}
 	
 	public String getMajor() {
 		return major;
 	}
 	
-	public void setMajor(String major) {
+	public void setMajor(String major) throws Exception {
+		major=new String(major.getBytes("ISO-8859-1"),"utf8");
 		this.major = major;
 	}
 	
@@ -280,7 +301,8 @@ public class StudentBean {
 		return field;
 	}
 	
-	public void setField(String field) {
+	public void setField(String field) throws Exception {
+		field=new String(field.getBytes("ISO-8859-1"),"utf8");
 		this.field = field;
 	}
 	
@@ -288,7 +310,8 @@ public class StudentBean {
 		return grade;
 	}
 	
-	public void setGrade(String grade) {
+	public void setGrade(String grade) throws Exception {
+		grade=new String(grade.getBytes("ISO-8859-1"),"utf8");
 		this.grade = grade;
 	}
 	
@@ -296,7 +319,8 @@ public class StudentBean {
 		return tutor;
 	}
 	
-	public void setTutor(String tutor) {
+	public void setTutor(String tutor) throws Exception {
+		tutor =new String(tutor .getBytes("ISO-8859-1"),"utf8");
 		this.tutor = tutor;
 	}
 	
@@ -312,16 +336,12 @@ public class StudentBean {
 		return degree;
 	}
 	
-<<<<<<< HEAD
 	public void setDegree(String degree) throws Exception {
 
 		degree =new String(degree .getBytes("ISO-8859-1"),"utf8");
-=======
-	public void setDegree(String degree) {
->>>>>>> 5e5c5985879fcd38cca9b1df0bf979028fec51ee
 		this.degree = degree;
 	}
-
+	
 	public List<Student> getStudents() {
 		return students;
 	}
@@ -335,5 +355,164 @@ public class StudentBean {
 	public void setCourses(List<Courseinfo> courses) {
 		this.courses = courses;
 	}
-
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	private List<Student> studentsbydept=new ArrayList<Student>();
+	private List<String > depnameList=new ArrayList<String>();
+	
+	public String listStudentbydept(String dept) throws Exception {
+		StudentDAO stuDao = getStudentDAO();
+		dept=new String(dept.getBytes("ISO-8859-1"),"utf8");
+		studentsbydept = stuDao.listStudentByDept(dept);
+		return "success";
+	}
+	public  String queryStuInfo(String sno) throws Exception
+	{
+		if(sno==null)this.setSno("");
+		else{
+			this.setSno(sno);
+			if(this.checkStuExist()==true)
+			{	
+				
+				this.CheckStuInfobyId(sno);
+				this.setMsg("");
+			}
+			else
+			{
+				this.setMsg("该学生序号不存在");
+				this.setSno("");
+			}
+		}
+		return "success";
+		
+	}
+	public List<Student> getdep()
+	{
+		return studentsbydept;
+	}
+	public String listdepname()
+	{
+		StudentDAO stuDao = getStudentDAO();
+		List<Student> students = stuDao.listStudent();
+		for(int i=0;i<students.size();i++)
+		{
+			String name=students.get(i).getSdept();
+			System.out.println(name);
+			depnameList.add(name);
+		}
+		 HashSet<String> h  =   new  HashSet<String>(depnameList); 
+		 depnameList.clear(); 
+		 depnameList.addAll(h);
+		return "success";
+	}
+	public List<String> getdepname()
+	{
+		return depnameList;
+	}
+	
+	private String dptname;
+	
+	public String getdptname()
+	{
+		return dptname;
+	}
+	public void setdptname(String dptname) throws Exception
+	{
+		dptname=new String(dptname.getBytes("ISO-8859-1"),"utf8");
+		this.dptname=dptname;
+	}
+	
+	private String msg_save;
+	
+	public String getmsg_save()
+	{
+		return msg_save;
+	}
+	public void setmsg_save(String msg_save)
+	{
+		this.msg_save=msg_save;
+	}
+	
+	public StudentBean() {
+		this.sno=" ";
+		this.sname=" ";
+		this.sgender=null;
+		this.sbirthday=null;
+		this.sidno=" ";
+		this.sdept=" ";
+		this.major=" ";
+		this.field=" ";
+		this.grade=" ";
+		this.tutor=" ";	
+		this.graduationDate=null;		
+		this.degree=" ";		
+		this.cno=" ";
+		this.dptname="";
+		this.msg="";
+		this.msg_save="";
+	}
+	
+	public String getStuNum()
+	{
+		if(getdep()==null)
+			return "";
+		int number=this.getdep().size();
+		if(number==0)
+		return "";
+		else {
+			return number+"";
+		}
+	}
+	public boolean checkStuExist()
+	{
+		StudentDAO stuDao = getStudentDAO();
+		return stuDao.isStuExist(sno);
+	}
+	public String CheckStuInfobyId(String sno) throws Exception {
+		
+		StudentDAO stuDao = getStudentDAO();
+		Student stu = stuDao.getStudentByID(sno);
+		
+		BeanUtils.copyProperties(this, stu);
+		sno=stu.getSno();
+		sname=stu.getSname();
+		sdept=stu.getSdept();
+		major=stu.getMajor();
+		field=stu.getField();
+		grade=stu.getGrade();
+		tutor=stu.getTutor();
+		degree=stu.getDegree();
+		sgender=stu.getSgender();
+		sbirthday=stu.getSbirthday();
+		sidno=stu.getSidno();
+		graduationDate=stu.getGraduationDate();	
+		System.out.println("id:"+getSno());
+		
+		return "success";	
+	}
+	public String getgraduationDate()
+	{
+		if(graduationDate==null)return "";
+		else {
+			return graduationDate.toString();
+		}
+	}
+	public String getsbirthday()
+	{
+		if(sbirthday==null)return "";
+		else {
+			return sbirthday.toString();
+		}
+	}
 }

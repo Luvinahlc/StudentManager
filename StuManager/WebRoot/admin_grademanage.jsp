@@ -19,7 +19,6 @@
     <li id="studentinfo"><a href="admin_stustatus.faces">学籍信息</a></li>
     <li id="teachinginfo"><a href="admin_grademanage.faces">成绩管理</a></li>
     <li id="teachinginfo"><a href="admin_courseplan.faces">选课安排</a></li>
-    <li id="teachinginfo"><a href="admin_graduateinfo.faces">毕业信息管理</a></li>
   </ul>
 </div>
 	</div>

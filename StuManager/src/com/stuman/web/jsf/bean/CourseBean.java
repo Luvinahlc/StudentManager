@@ -1,5 +1,7 @@
 package com.stuman.web.jsf.bean;
 
+import java.io.UnsupportedEncodingException;
+
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.stuman.dao.CourseInfoDAO;
@@ -19,8 +21,18 @@ public class CourseBean {
 	
 	private String cdept;
 	
+	private String msg;
+	
 	public CourseInfoDAO getCourseInfoDAO(){
 		return DAOFactory.getInstance().createCourseInfoDAOImp();
+	}
+	public CourseBean(){
+		cno="0";
+		cname="0";
+		credit=0;
+		hour=0;
+		cdept="0";
+		msg="";
 	}
 	
 	public String checkCourseInfo() throws Exception {
@@ -35,8 +47,11 @@ public class CourseBean {
 		
 		return "success";	
 	}
-	
-	public String addCourse() throws Exception {
+	public boolean CheckCourseExist(){
+		CourseInfoDAO crsDao = getCourseInfoDAO();
+		return crsDao.isCourseExist(cno);
+	}
+	public boolean addCourse() throws Exception {
 		
 		Courseinfo crsinfo = new Courseinfo();
 		
@@ -45,9 +60,10 @@ public class CourseBean {
 		CourseInfoDAO crsDao = getCourseInfoDAO();
 		
 		if(crsDao.addCourseInfo(crsinfo))
-			return "success";
-		return null;
+			return true;
+		return false;
 	}
+	
 	
 	public String getCno() {
 		return cno;
@@ -58,7 +74,8 @@ public class CourseBean {
 	public String getCname() {
 		return cname;
 	}
-	public void setCname(String cname) {
+	public void setCname(String cname) throws Exception {
+		cname=new String(cname.getBytes("ISO-8859-1"),"utf8");
 		this.cname = cname;
 	}
 	public Integer getCredit() {
@@ -76,8 +93,15 @@ public class CourseBean {
 	public String getCdept() {
 		return cdept;
 	}
-	public void setCdept(String cdept) {
+	public void setCdept(String cdept) throws Exception {
+		cdept=new String(cdept.getBytes("ISO-8859-1"),"utf8");
 		this.cdept = cdept;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 	
 	

@@ -16,4 +16,6 @@ public interface CourseInfoDAO {
 	boolean deleteCourseInfoById(String id);
 	
 	boolean updateCourseInfo(Courseinfo crInfo);
+	
+	boolean isCourseExist(String cno);
 }
