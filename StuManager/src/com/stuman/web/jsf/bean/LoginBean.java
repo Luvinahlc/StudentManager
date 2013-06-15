@@ -27,7 +27,7 @@ public class LoginBean {
 
 	// --------------------------------------------------------- Methods
 	public String login(){
-		msg="";
+		
 		Session s = HibernateUtil.currentSession();
 		
 		//JSF获取session
@@ -36,8 +36,9 @@ public class LoginBean {
 		HttpSession session = (HttpSession) ec.getSession(true); 
 		
 		//获得下拉的登陆类型
-		username = getUsername();
-		password = getPassword();
+		String username = getUsername();
+		String password = getPassword();
+
 		try {
 			HibernateUtil.beginTransaction();
 			int identity = -1;
@@ -45,14 +46,12 @@ public class LoginBean {
 			str = "from User user where user.id = '" + username
 					+ "' and user.password ='" + password + "'";
 			System.out.println(str);
-			Query query = s.createQuery(str);
-			if (query.list().size() > 0) {
-				session.setAttribute("id", ((User)query.list().get(0)).getId());
-				identity =  ((User)query.list().get(0)).getIdentity();
+			if (s.createQuery(str).list().size() > 0) {
+				session.setAttribute("id", ((User) s.createQuery(str).list().get(0)).getId());
+				identity =  ((User) s.createQuery(str).list().get(0)).getIdentity();
 				System.out.println(identity);
 				s.close();
 			} 
-
 			switch (identity) {
 				case 0:
 					return "studentLoginsuccess";
