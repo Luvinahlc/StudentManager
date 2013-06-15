@@ -34,8 +34,10 @@
     <li id="teachinginfo"><a href="admin_courseplan.faces">选课安排</a></li>
   </ul>
 </div>
+
 	</div>
 
+<<<<<<< HEAD
 <html>
   <head>
     <base href="login.faces">
@@ -115,6 +117,8 @@
   </body>
   
 </html>
+=======
+>>>>>>> eb647a47dce07219b51251026e57ad5df93dacf2
   </body>
 </html>
 
