@@ -5,19 +5,19 @@
 <%  
 	boolean isTime=StudentBean.getSelectcourseTime();
 	if(isTime){
-	String cno=request.getParameter("cno");
-	String teacher=request.getParameter("teacher");
-	StudentBean.setSno((String)session.getAttribute("id"));
-	System.out.println(StudentBean.getSno());
-	
-	System.out.println(teacher);	
-	if(cno!=null&&teacher!=null){
-		System.out.println("cno:"+cno);
-		teacher=new String(teacher.getBytes("ISO-8859-1"),"utf8");
-		StudentBean.ChooseCourse(cno, teacher);
+		String cno=request.getParameter("cno");
+		String teacher=request.getParameter("teacher");
+		StudentBean.setSno((String)session.getAttribute("id"));
+		System.out.println(StudentBean.getSno());
 		
-		request.removeAttribute("cno");
-		request.removeAttribute("teacher");
+		System.out.println(teacher);	
+		if(cno!=null&&teacher!=null){
+			System.out.println("cno:"+cno);
+			teacher=new String(teacher.getBytes("ISO-8859-1"),"utf8");
+			StudentBean.ChooseCourse(cno, teacher);
+			
+			request.removeAttribute("cno");
+			request.removeAttribute("teacher");
 	}
 	StudentBean.GetCoursesToBeChoosed(); }%>
 <%@page import ="com.stuman.domain.Courseinfo" %>

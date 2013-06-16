@@ -16,6 +16,8 @@ public interface StudentDAO {
 	List<Student> getStudentByGrade(String grade);
 	boolean isStuExist(String sno);
 	List<String> getStudentGrade();
+	List<String> getStudentGradeByDept(String dept);
+	List<Student> getStudentByGradeAndDept(String grade,String dept);
 	
 
 }

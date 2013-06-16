@@ -2,7 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <jsp:useBean id="AcademicBean" class="com.stuman.web.jsf.bean.AcademicBean" scope="page"/>
-<%	AcademicBean.getAllGrade();
+<%	
+	String ano=(String)session.getAttribute("id");
+	AcademicBean.getAllGradeByDept(ano);
 	String str=request.getParameter("content"); 
 	if(str!=null){
 		str=new String(str.getBytes("ISO-8859-1"),"utf8");
@@ -11,7 +13,7 @@
 		}
 		if (!str.contains("请选择...")) {
 			System.out.println(str);
-			AcademicBean.getStudentByGrade(str);
+			AcademicBean.getStudentByGradeAndDept(str, ano); ;
 		}	
 	}
 	
@@ -108,7 +110,11 @@
 				  <th >院系</th>
 				  <th >专业</th>
 				  <th >方向</th>		  
-				  <%int listnum=AcademicBean.getStudents().size();
+				  <%int	 listnum;
+				  if(AcademicBean.getStudents()==null)
+				  		listnum=0;
+				  else
+				  	listnum=AcademicBean.getStudents().size();
 				  for(int i=0;i<listnum;i++){
 				   	if(i%2 == 0) {%>
 				   	<tr align="left" class="TABLE_TR_01">

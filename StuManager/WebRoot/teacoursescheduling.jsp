@@ -29,8 +29,11 @@
 		}
 		if(submit.contains("确定")){
 			if(ctime != null && cplace != null){				
-				System.out.println(AcademicBean.setPlanBycno(cno, cplace, ctime, eplace, etime));
-				AcademicBean.setMsg("课程排课成功");
+				boolean info=AcademicBean.setPlanBycno(cno, cplace, ctime, eplace, etime);
+				if(info)
+					AcademicBean.setMsg("课程排课成功");
+				else
+					AcademicBean.setMsg("课程排课失败");
 			}
 		}
 	}

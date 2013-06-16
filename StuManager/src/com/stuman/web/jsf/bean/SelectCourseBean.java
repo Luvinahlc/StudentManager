@@ -8,12 +8,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import com.stuman.dao.AcademicDeanDAO;
 import com.stuman.dao.CourseInfoDAO;
 import com.stuman.dao.CoursePlanDAO;
 import com.stuman.dao.DAOFactory;
 import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
 import com.stuman.dao.hibernate.HibernateUtil;
+import com.stuman.domain.Academicdean;
 import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Courseplan;
 import com.stuman.domain.Scoreentertime;
@@ -38,7 +40,10 @@ public class SelectCourseBean {
 	private Selectcourse uniquecour;
 	private int sumCredit;
 	private String  msg="";
-	
+
+	public AcademicDeanDAO getAcademicDeanDAO() {
+		return DAOFactory.getInstance().createAcademicDeanDAOImp();
+	}
 	public SelectCourseDAO getSelectCourseDAO(){
 		return DAOFactory.getInstance().createSelectCourseDAOImp();
 	}
@@ -50,6 +55,13 @@ public class SelectCourseBean {
 	}
 	public CoursePlanDAO getCourseplanDAO() {
 		return DAOFactory.getInstance().createCoursePlanDAOImp();
+	}
+	public boolean isTimeCorrect(){
+		if(Date.valueOf(startTime).compareTo(Date.valueOf(endTime))<0){
+			return true;
+		}
+		else
+			return false;
 	}
 	public boolean setSelectTime() throws Exception{
 
@@ -63,6 +75,19 @@ public class SelectCourseBean {
 			return true;
 		return false;
 		
+	}
+	public boolean getScoreEnterTime(){
+		SelectCourseDAO selDao=getSelectCourseDAO();
+		Scoreentertime time=selDao.getScoreentertime();
+		if (time == null)
+			System.out.println("time is null!");
+		java.util.Date now=new java.util.Date();
+		System.out.println("today date:"+now);
+		if(time==null)
+			return false;
+		if((time.getId().getStartTime().compareTo(now)<=0)&&(time.getId().getEndTime().compareTo(now)>=0))
+			return true;
+		return false;
 	}
 	public boolean checklist() {
 		SelectCourseDAO selDao= getSelectCourseDAO();
@@ -116,6 +141,13 @@ public class SelectCourseBean {
 	public boolean checkSelectExist(){
 		SelectCourseDAO selDao= getSelectCourseDAO();
 		return selDao.isSelectExist(sno, cno);
+	}
+	public boolean checkSelectExistInDept(String ano){
+		AcademicDeanDAO acdDao = getAcademicDeanDAO();
+		Academicdean aca=acdDao.getAcademicDeanById(ano);
+		String dept=aca.getAdept();
+		SelectCourseDAO selDao= getSelectCourseDAO();
+		return selDao.isSelectExist(sno, cno, dept);
 	}
 	public String dropSelectedCourse(String sno,String cno) {
 		SelectCourseDAO selDao= getSelectCourseDAO();
@@ -183,17 +215,7 @@ public class SelectCourseBean {
 		return "success";
 	}
 	
-	public String checkScoreByCourse() {
-		return "success";
-	}
-	
-	public String sumCreditOfStu() {
-		return "success";
-	}
-	
-	public String inputScore() {
-		return "success";
-	}
+
 	
 	public String getSno() {
 		if(sno==null)

@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <jsp:useBean id="AcademicBean" class="com.stuman.web.jsf.bean.AcademicBean" scope="page"/>
-<%	AcademicBean.getAllGrade(); %>
+<%	String ano=(String)session.getAttribute("id");
+	AcademicBean.getAllGradeByDept(ano); %>
 
 
 <html>
@@ -69,7 +70,7 @@
 				   	<% }%>
 				   	<%String grade = (String)(AcademicBean.getGrade().get(i)); %>
 				   	<td valign="middle"><%=grade %></td>
-				   	<%AcademicBean.getStudentByGrade(grade); %>
+				   	<%AcademicBean.getStudentByGradeAndDept(grade, ano); %>
 				   	<td valign="middle"><%=AcademicBean.getStudents().size() %></td>
 				   	
 			   	</tr>	

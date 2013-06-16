@@ -1,6 +1,5 @@
 package com.stuman.web.jsf.bean;
 
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 import javax.faces.context.ExternalContext;
@@ -8,14 +7,12 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.hibernate.Session;
-
 import com.stuman.dao.CourseInfoDAO;
 import com.stuman.dao.CoursePlanDAO;
 import com.stuman.dao.DAOFactory;
+
 import com.stuman.dao.SelectCourseDAO;
 import com.stuman.dao.StudentDAO;
-import com.stuman.dao.hibernate.HibernateUtil;
 import com.stuman.domain.Courseinfo;
 import com.stuman.domain.Courseplan;
 import com.stuman.domain.Selectcourse;
@@ -285,7 +282,7 @@ public class StudentBean {
 	}
 	public void setSdept(String sdept) throws Exception {
 		sdept=new String(sdept.getBytes("ISO-8859-1"),"utf8");
-	this.sdept = sdept;
+		this.sdept = sdept;
 	}
 	
 	public String getMajor() {
@@ -429,7 +426,7 @@ public class StudentBean {
 	}
 	public void setdptname(String dptname) throws Exception
 	{
-		dptname=new String(dptname.getBytes("ISO-8859-1"),"utf8");
+		
 		this.dptname=dptname;
 	}
 	

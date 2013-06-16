@@ -65,7 +65,7 @@
 			
 		String sdept=request.getParameter("dept");
 		if(sdept!=null)
-			StudentBean.setdptname(sdept);
+			StudentBean.setSdept(sdept);
 			
 		String smajor=request.getParameter("majo");
 		if(smajor!=null)

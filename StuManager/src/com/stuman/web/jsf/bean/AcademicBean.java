@@ -34,9 +34,9 @@ public class AcademicBean {
 	
 	private String adept;
 
-	private List<Applyinfo> applyinfo;
+	private List<Applyinfo> applyinfo=new ArrayList<Applyinfo>();
 	
-	private List<Ungraduate> ungraduate;
+	private List<Ungraduate> ungraduate=new ArrayList<Ungraduate>();
 	
 	private List<String> grade;
 	
@@ -112,6 +112,14 @@ public class AcademicBean {
 		students=stuDao.getStudentByGrade(grade);
 		return true;
 	}
+	public boolean getStudentByGradeAndDept(String grade,String ano){
+		AcademicDeanDAO acaDao = getAcademicDeanDAO();
+		Academicdean aca = acaDao.getAcademicDeanById(ano);
+		String dept=aca.getAdept();
+		StudentDAO stuDao = getStudentDAO();
+		students=stuDao.getStudentByGradeAndDept(grade, dept);
+		return true;
+	}
 	public boolean getAllGrade(){
 		StudentDAO stuDao = getStudentDAO();
 		grade=stuDao.getStudentGrade();
@@ -119,13 +127,29 @@ public class AcademicBean {
 			return true;
 		return false;
 	}
-
-	public boolean getApplyinformation(){
+	public boolean getAllGradeByDept(String ano){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
+		Academicdean aca = acaDao.getAcademicDeanById(ano);
+		String dept=aca.getAdept();
 		StudentDAO stuDao = getStudentDAO();
-		applyinfo=acaDao.getApplyinfo();
+		grade=stuDao.getStudentGradeByDept(dept);
+		if(grade!=null)
+			return true;
+		return false;
+	} 
+
+	public boolean getApplyinformation(String ano){
+		AcademicDeanDAO acaDao = getAcademicDeanDAO();
+		Academicdean aca = acaDao.getAcademicDeanById(ano);
+		String dept=aca.getAdept();
+		StudentDAO stuDao = getStudentDAO();
+		List<Applyinfo> applyinfo=acaDao.getApplyinfo();
 		for(int i=0;i<applyinfo.size();i++){
-			students.add((Student)stuDao.getStudentByID(applyinfo.get(i).getId().getSno()));
+			Student stu=(Student)stuDao.getStudentByID(applyinfo.get(i).getId().getSno());
+			if(stu.getSdept().equals(dept)){
+				students.add(stu);
+				this.applyinfo.add(applyinfo.get(i));
+			}
 		}
 		return true;
 	}
@@ -134,13 +158,22 @@ public class AcademicBean {
 		applyinfo=acaDao.getApplyinfoBySno(sno);
 		return true;
 	}
-	public boolean getUngraduateInformation(){
+	public boolean getUngraduateInformation(String ano){
 		AcademicDeanDAO acaDao = getAcademicDeanDAO();
+		Academicdean aca = acaDao.getAcademicDeanById(ano);
+		String dept=aca.getAdept();
 		StudentDAO stuDao = getStudentDAO();
+		
+		List<Ungraduate> ungraduate=new ArrayList<Ungraduate>();
 		ungraduate=acaDao.getUngraduateinfo();
 		for(int i=0;i<ungraduate.size();i++){
-			students.add((Student)stuDao.getStudentByID(ungraduate.get(i).getSno()));
+			Student stu=(Student)stuDao.getStudentByID(ungraduate.get(i).getSno());
+			if(stu.getSdept().equals(dept)){
+				students.add(stu);
+				this.ungraduate.add(ungraduate.get(i));
+			}
 		}
+		
 		return true;
 	}
 	public List<Applyinfo> getApplyinfo() {
@@ -310,7 +343,7 @@ public class AcademicBean {
 		return " ";
 	}
 	
-	public String setPlanBycno(String cno, String cplace, String ctime, String eplace, String etime) throws Exception{
+	public boolean setPlanBycno(String cno, String cplace, String ctime, String eplace, String etime) throws Exception{
 		if(cno != null){
 			cplace = new String(cplace.getBytes("ISO-8859-1"),"utf8");
 			ctime = new String(ctime.getBytes("ISO-8859-1"),"utf8");
@@ -327,14 +360,14 @@ public class AcademicBean {
 						crs.get(i).setExamTime(etime);
 					CoursePlanDAO crsplanDao = getCourseplanDAO();
 					crsplanDao.updateCoursePlan(crs.get(i));
-					return "success";
+					return true;
 				}
 				
 				
 			}
-			return "cno not find";
+			return false;
 		}
-		return "cno is null";
+		return false;
 	}
 	
 	public String typeBycno(String cno){

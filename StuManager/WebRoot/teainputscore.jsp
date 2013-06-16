@@ -4,26 +4,30 @@
 <jsp:useBean id="SelectCourseBean" class="com.stuman.web.jsf.bean.SelectCourseBean" scope="request"/>
 <jsp:setProperty property="*" name="SelectCourseBean"/>
 <%	
-	String str=request.getParameter("submit");
-	if(str!=null){
-		str=new String(str.getBytes("ISO-8859-1"),"utf8");
-		System.out.println(str);
-		if(str.contains("查询")){
-			if(!SelectCourseBean.checkSelectExist()){
-				SelectCourseBean.setMsg("该选课记录不存在");
-			}
-			else
-				SelectCourseBean.checkScore();
-		}
-		if(str.contains("修改")){
-			if(!SelectCourseBean.checkSelectExist()){
-				SelectCourseBean.setMsg("该选课记录不存在");
-			}
-			else{
-				if(SelectCourseBean.Modify())
-					SelectCourseBean.setMsg("修改成功");
+	boolean isTime=SelectCourseBean.getScoreEnterTime();
+	if(isTime){
+		String str=request.getParameter("submit");
+		if(str!=null){
+			str=new String(str.getBytes("ISO-8859-1"),"utf8");
+			String ano=(String)session.getAttribute("id");
+			System.out.println(str);
+			if(str.contains("查询")){				
+				if(!SelectCourseBean.checkSelectExistInDept(ano)){
+					SelectCourseBean.setMsg("该选课记录不存在");
+				}
 				else
-					SelectCourseBean.setMsg("修改失败");
+					SelectCourseBean.checkScore();
+			}
+			if(str.contains("修改")){
+				if(!SelectCourseBean.checkSelectExistInDept(ano)){
+					SelectCourseBean.setMsg("该选课记录不存在");
+				}
+				else{
+					if(SelectCourseBean.Modify())
+						SelectCourseBean.setMsg("修改成功");
+					else
+						SelectCourseBean.setMsg("修改失败");
+				}
 			}
 		}
 	}
@@ -72,7 +76,7 @@
 	<script type="text/javascript"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
-
+<%if(isTime){ %>
 <body class="BODY"  leftmargin="50" rightmargin="50">
   <div  align="center" style="width: 100%">
    <form action="teainputscore.jsp" method="post">
@@ -114,5 +118,9 @@
 			</div>
 	
   </body>
+  <%} %>
+  <% if(!isTime){ %>
+  	<a>成绩录入尚未开始！<br/></a>
+  <% }%>
   
 </html>

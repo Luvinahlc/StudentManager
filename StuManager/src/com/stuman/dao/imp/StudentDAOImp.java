@@ -174,4 +174,36 @@ public class StudentDAOImp implements StudentDAO {
 		return null;
 	}
 
+	public List<String> getStudentGradeByDept(String dept) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<String> results = s.createQuery("select distinct stu.grade from Student as stu where stu.sdept=:dept").setString("dept", dept).list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
+	public List<Student> getStudentByGradeAndDept(String grade, String dept) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			List<Student> results = s.createQuery("from Student as stu where stu.grade=:sgrade and stu.sdept=:dept").setString("dept", dept).setString("sgrade",grade).list();
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			if (results != null && results.size() > 0) {
+				return results;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
 }

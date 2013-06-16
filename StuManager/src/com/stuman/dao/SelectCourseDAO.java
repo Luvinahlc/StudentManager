@@ -32,5 +32,9 @@ public interface SelectCourseDAO {
 	
 	boolean isSelectExist(String sno,String cno);
 	
+	boolean isSelectExist(String sno,String cno,String dept);
+	
 	boolean setScoreentertime(Scoreentertime time);
+	
+	Scoreentertime getScoreentertime();
 }

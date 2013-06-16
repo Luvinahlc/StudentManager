@@ -67,10 +67,12 @@ public class SelectCourseDAOImp implements SelectCourseDAO {
 		// 开始事务
 		HibernateUtil.beginTransaction();     
         Integer sum = (Integer)s.createQuery
-        ("select sum(courinfo.credit) from Selectcourse cour , Courseinfo courinfo  where (cour.id.sno=:stuNo) and (cour.id.cno=courinfo.cno)").setString("stuNo", sno).uniqueResult();
+        ("select sum(courinfo.credit) from Selectcourse cour , Courseinfo courinfo  where (cour.id.sno=:stuNo) and (cour.id.cno=courinfo.cno) and (cour.score>=60)").setString("stuNo", sno).uniqueResult();
         HibernateUtil.commitTransaction();
 		// 关闭Session
 		HibernateUtil.closeSession();
+		if(sum==null)
+			return 0;
 		return sum.intValue();
 		}
 		catch (HibernateException e) {
@@ -239,6 +241,46 @@ public class SelectCourseDAOImp implements SelectCourseDAO {
 			HibernateUtil.commitTransaction();
 			HibernateUtil.closeSession();
 			return true;
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return false;
+	}
+
+	public Scoreentertime getScoreentertime() {
+		try {
+			// 获得Session
+			Session s = HibernateUtil.currentSession();
+			// 开始事务
+			HibernateUtil.beginTransaction();
+			// 执行操作
+			Scoreentertime time = (Scoreentertime)s.createQuery("from Scoreentertime").list().get(0);
+			// 提交事务
+			HibernateUtil.commitTransaction();
+			// 关闭Session
+			HibernateUtil.closeSession();
+			if (time != null) {
+				return time;
+			}
+		} catch (HibernateException e) {
+			log.fatal(e);
+		}
+		return null;
+	}
+
+	public boolean isSelectExist(String sno, String cno, String dept) {
+		try {
+			Session s = HibernateUtil.currentSession();
+			HibernateUtil.beginTransaction();
+			if(s.createQuery("from Selectcourse as cour, Courseinfo as courinfo where cour.id.cno=courinfo.cno and cour.id.cno=:CourNo"+" and cour.id.sno=:StuNo and courinfo.cdept=:dept").setString("CourNo", cno).setString("StuNo", sno).setString("dept", dept).uniqueResult()!=null){
+				HibernateUtil.commitTransaction();
+				HibernateUtil.closeSession();
+				return true;
+			}
+			HibernateUtil.commitTransaction();
+			HibernateUtil.closeSession();
+			return false;
+			
 		} catch (HibernateException e) {
 			log.fatal(e);
 		}

@@ -6,16 +6,22 @@
 <%	
     String startTime=request.getParameter("startTime");
 	String endTime=request.getParameter("endTime");
-	
-	System.out.println(startTime);
-	System.out.println(endTime);
+
 	if(startTime!=null&&endTime!=null){
-		if(SelectCourseBean.setSelectTime())
-			SelectCourseBean.setMsg("修改成功");
-		else
-			SelectCourseBean.setMsg("修改失败");
-		request.removeAttribute("startTime");
-		request.removeAttribute("endTime");
+		if(SelectCourseBean.getStartTime()==null||SelectCourseBean.getEndTime()==null){
+			SelectCourseBean.setMsg("请输入完整的起止时间");
+		}
+		else if(!SelectCourseBean.isTimeCorrect()){
+			SelectCourseBean.setMsg("截止时间不能早于开始时间！");
+		}
+		else{
+			if(SelectCourseBean.setSelectTime())
+				SelectCourseBean.setMsg("修改成功");
+			else
+				SelectCourseBean.setMsg("修改失败");
+			request.removeAttribute("startTime");
+			request.removeAttribute("endTime");
+		}
 	}
 %>
 
